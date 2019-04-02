@@ -63,6 +63,16 @@ namespace Z2R_Mapper.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AboutPic {
+            get {
+                object obj = ResourceManager.GetObject("AboutPic", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bagu {
             get {
                 object obj = ResourceManager.GetObject("Bagu", resourceCulture);

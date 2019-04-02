@@ -120,7 +120,7 @@ namespace Z2R_Mapper.Palace_Routing
                     if (connections.roomExits[direction].isValid && !isImpassible)
                     {
                         directions[numConnections] = (Direction)direction;
-                        if(!RoomExitAlreadyUsed(directions, roomIndices, numConnections + 1))
+                        if(!RoomExitAlreadyUsed(directions, roomIndices, numConnections + 1, connections.pitInsteadOfElevator))
                         {
                             PathFind(directions, roomIndices, numConnections + 1, connections.roomExits[direction].indexOfNextRoom, endingRoomIndex);
                         }
@@ -136,7 +136,7 @@ namespace Z2R_Mapper.Palace_Routing
         // that are effectively dead ends because they wrap on themselves.
         // What we need to do is check the exit we're about to take.  If we've taken this exit before OR
         // entered from this direction before, then this connection has already been encountered.
-        private bool RoomExitAlreadyUsed(Direction[] exitDirections, int[] roomIndices, int length)
+        private bool RoomExitAlreadyUsed(Direction[] exitDirections, int[] roomIndices, int length, bool pitInsteadOfElevator)
         {
             if(length < 2)
             {
@@ -156,7 +156,17 @@ namespace Z2R_Mapper.Palace_Routing
                     // First, check whether we've already entered from this direction.
                     if((routeIndex > 1) && (InvertDirection(exitDirections[routeIndex - 1]) == currentExitDirection))
                     {
-                        return true;
+                        if(pitInsteadOfElevator && (currentExitDirection == Direction.Down || currentExitDirection == Direction.Up))
+                        {
+                            // Vanilla game never misaligns pits between up exit (screen 3) and down exit (screen 2), but
+                            // the randomizer will do this.  This has to be treated as a special case here or we'll return
+                            // a false positive.
+                            return false;
+                        } else
+                        {
+                            // This room has an elevator.  This is valid flag to say this exit goes back the way we came.
+                            return true;
+                        }
                     }
 
                     // Second, check whether we've already exited through this direction

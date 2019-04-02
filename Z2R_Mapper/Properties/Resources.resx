@@ -118,193 +118,196 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Bagu" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Bagu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Blank_Square" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Blank_Square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveC" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveD" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveF" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveH1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveH1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveH2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveH2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveH3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveH3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveH4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveH4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveI1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveI2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveI2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveI3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveI3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveI4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveI4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CaveP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CaveP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Darunia" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Darunia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeathMountain_Entrance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeathMountain_Entrance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeathMountain_Entrance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeathMountain_Entrance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeathMountain_Exit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeathMountain_Exit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="DeathMountain_Exit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\DeathMountain_Exit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FairyCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FairyCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FairyCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FairyCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Forced_Encounter" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Forced_Encounter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Forced_Encounter2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Forced_Encounter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GP" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GP_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\GP_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JumpCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JumpCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="JumpCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\JumpCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="KingsTomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\KingsTomb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Mido" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Mido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Nabooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Nabooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NewKasuto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NewKasuto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NorthPalace" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NorthPalace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="OldKasuto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\OldKasuto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P1_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="P2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\P2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P2_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P3_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P4_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P4_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P5_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="P6" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\P6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="P6_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\P6_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ParapaCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ParapaCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CaveI3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveI3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ParapaCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ParapaCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CaveE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Rauru" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Rauru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Blank_Square" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Blank_Square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ruto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ruto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Saria_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Saria_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CaveN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveN.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Saria_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Saria_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CaveI2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveI2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P5_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P5_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveF.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Bagu" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Bagu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveC.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FairyCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FairyCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeathMountain_Exit2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathMountain_Exit2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveH2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveH2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P4_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P4_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Mido" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Mido.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forced_Encounter" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forced_Encounter.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveH3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveH3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P2_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P2_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeathMountain_Entrance2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathMountain_Entrance2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GP_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GP_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ParapaCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ParapaCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JumpCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JumpCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveI1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveI1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Rauru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Rauru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveB.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveI4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveI4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KingsTomb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KingsTomb.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ParapaCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ParapaCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GP" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GP.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveM" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="FairyCave_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FairyCave_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="OldKasuto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OldKasuto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Nabooru" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nabooru.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Darunia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Darunia.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NewKasuto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NewKasuto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="JumpCave_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\JumpCave_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveH4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveH4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NorthPalace" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NorthPalace.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeathMountain_Exit1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathMountain_Exit1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveH1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveH1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DeathMountain_Entrance1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\DeathMountain_Entrance1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Start" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Start.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Triforce" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Triforce.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveD.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Saria_Right" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Saria_Right.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveJ" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveJ.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="P3_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\P3_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Forced_Encounter2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Forced_Encounter2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Saria_Left" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Saria_Left.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="AboutPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AboutPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -39,13 +39,9 @@
             this.showCombinedSpellCheckBox = new System.Windows.Forms.CheckBox();
             this.showMaxHeartContainersCheckBox = new System.Windows.Forms.CheckBox();
             this.westernHyruleTabPage = new System.Windows.Forms.TabPage();
-            this.westernHyrulePictureBox = new System.Windows.Forms.PictureBox();
             this.deathMountainTabPage = new System.Windows.Forms.TabPage();
-            this.deathMountainPictureBox = new System.Windows.Forms.PictureBox();
             this.easternHyruleTabPage = new System.Windows.Forms.TabPage();
-            this.easternHyrulePictureBox = new System.Windows.Forms.PictureBox();
             this.mazeIslandTabPage = new System.Windows.Forms.TabPage();
-            this.mazeIslandPictureBox = new System.Windows.Forms.PictureBox();
             this.itemSummaryTabPage = new System.Windows.Forms.TabPage();
             this.itemSummaryTextBox = new System.Windows.Forms.TextBox();
             this.spellSummaryTabPage = new System.Windows.Forms.TabPage();
@@ -55,39 +51,45 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.showMagicCostsCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
-            this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.palaceRoutingTextBox = new System.Windows.Forms.TextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
+            this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
+            this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
+            this.westernHyrulePictureBox = new System.Windows.Forms.PictureBox();
+            this.deathMountainPictureBox = new System.Windows.Forms.PictureBox();
+            this.easternHyrulePictureBox = new System.Windows.Forms.PictureBox();
+            this.mazeIslandPictureBox = new System.Windows.Forms.PictureBox();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.westernHyruleTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).BeginInit();
             this.deathMountainTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).BeginInit();
             this.easternHyruleTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).BeginInit();
             this.mazeIslandTabPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).BeginInit();
             this.itemSummaryTabPage.SuspendLayout();
             this.spellSummaryTabPage.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
@@ -155,7 +157,7 @@
             this.panel2.Margin = new System.Windows.Forms.Padding(0);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(854, 493);
-            this.panel2.TabIndex = 6;
+            this.panel2.TabIndex = 0;
             // 
             // startingStatsTextBox
             // 
@@ -167,7 +169,7 @@
             this.startingStatsTextBox.Name = "startingStatsTextBox";
             this.startingStatsTextBox.ReadOnly = true;
             this.startingStatsTextBox.Size = new System.Drawing.Size(500, 405);
-            this.startingStatsTextBox.TabIndex = 2;
+            this.startingStatsTextBox.TabIndex = 0;
             // 
             // panel1
             // 
@@ -179,7 +181,7 @@
             this.panel1.Location = new System.Drawing.Point(6, 502);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(854, 28);
-            this.panel1.TabIndex = 5;
+            this.panel1.TabIndex = 1;
             // 
             // showCombinedSpellCheckBox
             // 
@@ -188,7 +190,7 @@
             this.showCombinedSpellCheckBox.Location = new System.Drawing.Point(213, 4);
             this.showCombinedSpellCheckBox.Name = "showCombinedSpellCheckBox";
             this.showCombinedSpellCheckBox.Size = new System.Drawing.Size(222, 21);
-            this.showCombinedSpellCheckBox.TabIndex = 3;
+            this.showCombinedSpellCheckBox.TabIndex = 1;
             this.showCombinedSpellCheckBox.Text = "Show Spell Combined with Fire";
             this.showCombinedSpellCheckBox.UseVisualStyleBackColor = true;
             this.showCombinedSpellCheckBox.CheckedChanged += new System.EventHandler(this.showCombinedSpellCheckBox_CheckedChanged);
@@ -200,7 +202,7 @@
             this.showMaxHeartContainersCheckBox.Location = new System.Drawing.Point(3, 4);
             this.showMaxHeartContainersCheckBox.Name = "showMaxHeartContainersCheckBox";
             this.showMaxHeartContainersCheckBox.Size = new System.Drawing.Size(204, 21);
-            this.showMaxHeartContainersCheckBox.TabIndex = 4;
+            this.showMaxHeartContainersCheckBox.TabIndex = 0;
             this.showMaxHeartContainersCheckBox.Text = "Show Max Heart Containers";
             this.showMaxHeartContainersCheckBox.UseVisualStyleBackColor = true;
             this.showMaxHeartContainersCheckBox.CheckedChanged += new System.EventHandler(this.showMaxHeartContainersCheckBox_CheckedChanged);
@@ -217,15 +219,6 @@
             this.westernHyruleTabPage.Text = "Western Hyrule";
             this.westernHyruleTabPage.UseVisualStyleBackColor = true;
             // 
-            // westernHyrulePictureBox
-            // 
-            this.westernHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
-            this.westernHyrulePictureBox.Name = "westernHyrulePictureBox";
-            this.westernHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
-            this.westernHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.westernHyrulePictureBox.TabIndex = 0;
-            this.westernHyrulePictureBox.TabStop = false;
-            // 
             // deathMountainTabPage
             // 
             this.deathMountainTabPage.AutoScroll = true;
@@ -237,15 +230,6 @@
             this.deathMountainTabPage.TabIndex = 2;
             this.deathMountainTabPage.Text = "Death Mountain";
             this.deathMountainTabPage.UseVisualStyleBackColor = true;
-            // 
-            // deathMountainPictureBox
-            // 
-            this.deathMountainPictureBox.Location = new System.Drawing.Point(6, 6);
-            this.deathMountainPictureBox.Name = "deathMountainPictureBox";
-            this.deathMountainPictureBox.Size = new System.Drawing.Size(300, 200);
-            this.deathMountainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.deathMountainPictureBox.TabIndex = 0;
-            this.deathMountainPictureBox.TabStop = false;
             // 
             // easternHyruleTabPage
             // 
@@ -259,15 +243,6 @@
             this.easternHyruleTabPage.Text = "Eastern Hyrule";
             this.easternHyruleTabPage.UseVisualStyleBackColor = true;
             // 
-            // easternHyrulePictureBox
-            // 
-            this.easternHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
-            this.easternHyrulePictureBox.Name = "easternHyrulePictureBox";
-            this.easternHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
-            this.easternHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.easternHyrulePictureBox.TabIndex = 0;
-            this.easternHyrulePictureBox.TabStop = false;
-            // 
             // mazeIslandTabPage
             // 
             this.mazeIslandTabPage.AutoScroll = true;
@@ -279,15 +254,6 @@
             this.mazeIslandTabPage.TabIndex = 3;
             this.mazeIslandTabPage.Text = "Maze Island";
             this.mazeIslandTabPage.UseVisualStyleBackColor = true;
-            // 
-            // mazeIslandPictureBox
-            // 
-            this.mazeIslandPictureBox.Location = new System.Drawing.Point(6, 6);
-            this.mazeIslandPictureBox.Name = "mazeIslandPictureBox";
-            this.mazeIslandPictureBox.Size = new System.Drawing.Size(300, 200);
-            this.mazeIslandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.mazeIslandPictureBox.TabIndex = 0;
-            this.mazeIslandPictureBox.TabStop = false;
             // 
             // itemSummaryTabPage
             // 
@@ -339,7 +305,7 @@
             this.panel4.Margin = new System.Windows.Forms.Padding(0);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(852, 492);
-            this.panel4.TabIndex = 4;
+            this.panel4.TabIndex = 0;
             // 
             // spellSummaryTextBox
             // 
@@ -351,7 +317,7 @@
             this.spellSummaryTextBox.Name = "spellSummaryTextBox";
             this.spellSummaryTextBox.ReadOnly = true;
             this.spellSummaryTextBox.Size = new System.Drawing.Size(500, 275);
-            this.spellSummaryTextBox.TabIndex = 1;
+            this.spellSummaryTextBox.TabIndex = 0;
             // 
             // spellCostsTextBox
             // 
@@ -363,7 +329,7 @@
             this.spellCostsTextBox.Name = "spellCostsTextBox";
             this.spellCostsTextBox.ReadOnly = true;
             this.spellCostsTextBox.Size = new System.Drawing.Size(550, 400);
-            this.spellCostsTextBox.TabIndex = 2;
+            this.spellCostsTextBox.TabIndex = 1;
             this.spellCostsTextBox.Visible = false;
             // 
             // panel3
@@ -374,7 +340,7 @@
             this.panel3.Location = new System.Drawing.Point(4, 505);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(856, 25);
-            this.panel3.TabIndex = 3;
+            this.panel3.TabIndex = 1;
             // 
             // showMagicCostsCheckBox
             // 
@@ -400,6 +366,32 @@
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Palace Routing";
             // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel6.AutoScroll = true;
+            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel6.Controls.Add(this.palaceRoutingTextBox);
+            this.panel6.Location = new System.Drawing.Point(6, 6);
+            this.panel6.Margin = new System.Windows.Forms.Padding(0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(854, 492);
+            this.panel6.TabIndex = 0;
+            // 
+            // palaceRoutingTextBox
+            // 
+            this.palaceRoutingTextBox.BackColor = System.Drawing.SystemColors.Control;
+            this.palaceRoutingTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.palaceRoutingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.palaceRoutingTextBox.Location = new System.Drawing.Point(3, 3);
+            this.palaceRoutingTextBox.Multiline = true;
+            this.palaceRoutingTextBox.Name = "palaceRoutingTextBox";
+            this.palaceRoutingTextBox.ReadOnly = true;
+            this.palaceRoutingTextBox.Size = new System.Drawing.Size(1500, 1500);
+            this.palaceRoutingTextBox.TabIndex = 0;
+            // 
             // panel5
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -410,7 +402,21 @@
             this.panel5.Location = new System.Drawing.Point(6, 504);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(854, 26);
-            this.panel5.TabIndex = 0;
+            this.panel5.TabIndex = 1;
+            // 
+            // showRequirementsCheckBox
+            // 
+            this.showRequirementsCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.showRequirementsCheckBox.AutoSize = true;
+            this.showRequirementsCheckBox.Checked = true;
+            this.showRequirementsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showRequirementsCheckBox.Location = new System.Drawing.Point(140, 2);
+            this.showRequirementsCheckBox.Name = "showRequirementsCheckBox";
+            this.showRequirementsCheckBox.Size = new System.Drawing.Size(156, 21);
+            this.showRequirementsCheckBox.TabIndex = 1;
+            this.showRequirementsCheckBox.Text = "Show Requirements";
+            this.showRequirementsCheckBox.UseVisualStyleBackColor = true;
+            this.showRequirementsCheckBox.CheckedChanged += new System.EventHandler(this.showRequirementsCheckBox_CheckedChanged);
             // 
             // showItemToBossCheckBox
             // 
@@ -419,7 +425,7 @@
             this.showItemToBossCheckBox.Location = new System.Drawing.Point(302, 2);
             this.showItemToBossCheckBox.Name = "showItemToBossCheckBox";
             this.showItemToBossCheckBox.Size = new System.Drawing.Size(198, 21);
-            this.showItemToBossCheckBox.TabIndex = 1;
+            this.showItemToBossCheckBox.TabIndex = 2;
             this.showItemToBossCheckBox.Text = "Show Item to Boss Routing";
             this.showItemToBossCheckBox.UseVisualStyleBackColor = true;
             this.showItemToBossCheckBox.CheckedChanged += new System.EventHandler(this.showItemToBossCheckBox_CheckedChanged);
@@ -436,48 +442,52 @@
             this.showDirectionsCheckBox.UseVisualStyleBackColor = true;
             this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.showDirectionsCheckBox_CheckedChanged);
             // 
-            // panel6
+            // westernHyrulePictureBox
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.AutoScroll = true;
-            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel6.Controls.Add(this.palaceRoutingTextBox);
-            this.panel6.Location = new System.Drawing.Point(6, 6);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(854, 492);
-            this.panel6.TabIndex = 1;
+            this.westernHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
+            this.westernHyrulePictureBox.Name = "westernHyrulePictureBox";
+            this.westernHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
+            this.westernHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.westernHyrulePictureBox.TabIndex = 0;
+            this.westernHyrulePictureBox.TabStop = false;
             // 
-            // palaceRoutingTextBox
+            // deathMountainPictureBox
             // 
-            this.palaceRoutingTextBox.BackColor = System.Drawing.SystemColors.Control;
-            this.palaceRoutingTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.palaceRoutingTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.palaceRoutingTextBox.Location = new System.Drawing.Point(3, 3);
-            this.palaceRoutingTextBox.Multiline = true;
-            this.palaceRoutingTextBox.Name = "palaceRoutingTextBox";
-            this.palaceRoutingTextBox.ReadOnly = true;
-            this.palaceRoutingTextBox.Size = new System.Drawing.Size(1500, 1500);
-            this.palaceRoutingTextBox.TabIndex = 1;
+            this.deathMountainPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.deathMountainPictureBox.Name = "deathMountainPictureBox";
+            this.deathMountainPictureBox.Size = new System.Drawing.Size(300, 200);
+            this.deathMountainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.deathMountainPictureBox.TabIndex = 0;
+            this.deathMountainPictureBox.TabStop = false;
             // 
-            // showRequirementsCheckBox
+            // easternHyrulePictureBox
             // 
-            this.showRequirementsCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.showRequirementsCheckBox.AutoSize = true;
-            this.showRequirementsCheckBox.Checked = true;
-            this.showRequirementsCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.showRequirementsCheckBox.Location = new System.Drawing.Point(140, 2);
-            this.showRequirementsCheckBox.Name = "showRequirementsCheckBox";
-            this.showRequirementsCheckBox.Size = new System.Drawing.Size(156, 21);
-            this.showRequirementsCheckBox.TabIndex = 2;
-            this.showRequirementsCheckBox.Text = "Show Requirements";
-            this.showRequirementsCheckBox.UseVisualStyleBackColor = true;
-            this.showRequirementsCheckBox.CheckedChanged += new System.EventHandler(this.showRequirementsCheckBox_CheckedChanged);
+            this.easternHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
+            this.easternHyrulePictureBox.Name = "easternHyrulePictureBox";
+            this.easternHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
+            this.easternHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.easternHyrulePictureBox.TabIndex = 0;
+            this.easternHyrulePictureBox.TabStop = false;
+            // 
+            // mazeIslandPictureBox
+            // 
+            this.mazeIslandPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.mazeIslandPictureBox.Name = "mazeIslandPictureBox";
+            this.mazeIslandPictureBox.Size = new System.Drawing.Size(300, 200);
+            this.mazeIslandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.mazeIslandPictureBox.TabIndex = 0;
+            this.mazeIslandPictureBox.TabStop = false;
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 608);
@@ -488,6 +498,8 @@
             this.Name = "Form1";
             this.Text = "Z2R Mapper";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -498,16 +510,12 @@
             this.panel1.PerformLayout();
             this.westernHyruleTabPage.ResumeLayout(false);
             this.westernHyruleTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).EndInit();
             this.deathMountainTabPage.ResumeLayout(false);
             this.deathMountainTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).EndInit();
             this.easternHyruleTabPage.ResumeLayout(false);
             this.easternHyruleTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).EndInit();
             this.mazeIslandTabPage.ResumeLayout(false);
             this.mazeIslandTabPage.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).EndInit();
             this.itemSummaryTabPage.ResumeLayout(false);
             this.itemSummaryTabPage.PerformLayout();
             this.spellSummaryTabPage.ResumeLayout(false);
@@ -516,10 +524,14 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,6 +572,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox palaceRoutingTextBox;
         private System.Windows.Forms.CheckBox showRequirementsCheckBox;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
     }
 }
 
