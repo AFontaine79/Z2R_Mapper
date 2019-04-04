@@ -13,7 +13,12 @@ namespace Z2R_Mapper
 {
     public partial class Form1 : Form
     {
-        Z2R_Mapper _z2rMapper;
+        private Z2R_Mapper _z2rMapper;
+
+        private Bitmap _westernHyruleImageBackup;
+        private Bitmap _easternHyruleImageBackup;
+        private Bitmap _deathMountainImageBackup;
+        private Bitmap _mazeIslandImageBackup;
 
         public Form1()
         {
@@ -53,10 +58,14 @@ namespace Z2R_Mapper
 
         private void LoadDataIntoForms()
         {
-            westernHyrulePictureBox.Image = _z2rMapper.GetOverworldBitmap(OverworldArea.WesternHyrule);
-            easternHyrulePictureBox.Image = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
-            deathMountainPictureBox.Image = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
-            mazeIslandPictureBox.Image = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
+            _westernHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.WesternHyrule);
+            westernHyrulePictureBox.Image = _westernHyruleImageBackup;
+            _easternHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
+            easternHyrulePictureBox.Image = _easternHyruleImageBackup;
+            _deathMountainImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
+            deathMountainPictureBox.Image = _deathMountainImageBackup;
+            _mazeIslandImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
+            mazeIslandPictureBox.Image = _mazeIslandImageBackup;
 
             itemSummaryTextBox.Text = _z2rMapper.GetItemSummary();
             spellSummaryTextBox.Text = _z2rMapper.GetSpellSummary();
@@ -144,6 +153,120 @@ namespace Z2R_Mapper
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog();
+        }
+
+        private bool _panning = false;
+        private Point _autoScrollStartPosition = Point.Empty;
+        private Point _mouseStartingLocation = Point.Empty;
+
+        private void westernHyruleTabPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            _panning = true;
+            _autoScrollStartPosition = westernHyruleTabPage.AutoScrollPosition;
+            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
+            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
+            _mouseStartingLocation = e.Location;
+        }
+        private void westernHyruleTabPage_MouseUp(object sender, MouseEventArgs e)
+        {
+            _panning = false;
+        }
+        private void westernHyruleTabPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_panning)
+            {
+                Point newAutoScrollPosition = new Point();
+                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
+                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
+                westernHyruleTabPage.AutoScrollPosition = newAutoScrollPosition;
+
+                westernHyruleTabPage.Invalidate();
+                westernHyrulePictureBox.Invalidate();
+            }
+        }
+
+        private void deathMountainTabPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            _panning = true;
+            _autoScrollStartPosition = deathMountainTabPage.AutoScrollPosition;
+            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
+            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
+            _mouseStartingLocation = e.Location;
+        }
+
+        private void deathMountainTabPage_MouseUp(object sender, MouseEventArgs e)
+        {
+            _panning = false;
+        }
+
+        private void deathMountainTabPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_panning)
+            {
+                Point newAutoScrollPosition = new Point();
+                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
+                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
+                deathMountainTabPage.AutoScrollPosition = newAutoScrollPosition;
+
+                deathMountainTabPage.Invalidate();
+                deathMountainPictureBox.Invalidate();
+            }
+        }
+
+        private void easternHyruleTabPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            _panning = true;
+            _autoScrollStartPosition = easternHyruleTabPage.AutoScrollPosition;
+            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
+            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
+            _mouseStartingLocation = e.Location;
+        }
+
+        private void easternHyruleTabPage_MouseUp(object sender, MouseEventArgs e)
+        {
+            _panning = false;
+        }
+
+        private void easternHyruleTabPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_panning)
+            {
+                Point newAutoScrollPosition = new Point();
+                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
+                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
+                easternHyruleTabPage.AutoScrollPosition = newAutoScrollPosition;
+
+                easternHyruleTabPage.Invalidate();
+                easternHyrulePictureBox.Invalidate();
+            }
+        }
+
+        private void mazeIslandTabPage_MouseDown(object sender, MouseEventArgs e)
+        {
+            _panning = true;
+            _autoScrollStartPosition = mazeIslandTabPage.AutoScrollPosition;
+            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
+            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
+            _mouseStartingLocation = e.Location;
+        }
+
+        private void mazeIslandTabPage_MouseUp(object sender, MouseEventArgs e)
+        {
+            _panning = false;
+        }
+
+        private void mazeIslandTabPage_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (_panning)
+            {
+                Point newAutoScrollPosition = new Point();
+                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
+                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
+                mazeIslandTabPage.AutoScrollPosition = newAutoScrollPosition;
+
+                mazeIslandTabPage.Invalidate();
+                mazeIslandPictureBox.Invalidate();
+            }
         }
     }
 }

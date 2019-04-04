@@ -17,6 +17,7 @@ namespace Z2R_Mapper
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
             this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+        }
 
         #region Assembly Attribute Accessors
 

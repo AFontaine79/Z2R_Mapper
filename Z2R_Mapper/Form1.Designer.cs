@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZeldaIIROMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.startingStatsTabPage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -39,9 +40,13 @@
             this.showCombinedSpellCheckBox = new System.Windows.Forms.CheckBox();
             this.showMaxHeartContainersCheckBox = new System.Windows.Forms.CheckBox();
             this.westernHyruleTabPage = new System.Windows.Forms.TabPage();
+            this.westernHyrulePictureBox = new System.Windows.Forms.PictureBox();
             this.deathMountainTabPage = new System.Windows.Forms.TabPage();
+            this.deathMountainPictureBox = new System.Windows.Forms.PictureBox();
             this.easternHyruleTabPage = new System.Windows.Forms.TabPage();
+            this.easternHyrulePictureBox = new System.Windows.Forms.PictureBox();
             this.mazeIslandTabPage = new System.Windows.Forms.TabPage();
+            this.mazeIslandPictureBox = new System.Windows.Forms.PictureBox();
             this.itemSummaryTabPage = new System.Windows.Forms.TabPage();
             this.itemSummaryTextBox = new System.Windows.Forms.TextBox();
             this.spellSummaryTabPage = new System.Windows.Forms.TabPage();
@@ -57,20 +62,19 @@
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
             this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
             this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
-            this.westernHyrulePictureBox = new System.Windows.Forms.PictureBox();
-            this.deathMountainPictureBox = new System.Windows.Forms.PictureBox();
-            this.easternHyrulePictureBox = new System.Windows.Forms.PictureBox();
-            this.mazeIslandPictureBox = new System.Windows.Forms.PictureBox();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.westernHyruleTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).BeginInit();
             this.deathMountainTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).BeginInit();
             this.easternHyruleTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).BeginInit();
             this.mazeIslandTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).BeginInit();
             this.itemSummaryTabPage.SuspendLayout();
             this.spellSummaryTabPage.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -78,10 +82,6 @@
             this.tabPage1.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -112,6 +112,13 @@
             this.openZeldaIIROMFileToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.openZeldaIIROMFileToolStripMenuItem.Text = "Open Z2R ROM File";
             this.openZeldaIIROMFileToolStripMenuItem.Click += new System.EventHandler(this.OpenZeldaIIROMFileToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -218,6 +225,19 @@
             this.westernHyruleTabPage.TabIndex = 0;
             this.westernHyruleTabPage.Text = "Western Hyrule";
             this.westernHyruleTabPage.UseVisualStyleBackColor = true;
+            this.westernHyruleTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseDown);
+            this.westernHyruleTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseMove);
+            this.westernHyruleTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseUp);
+            // 
+            // westernHyrulePictureBox
+            // 
+            this.westernHyrulePictureBox.Enabled = false;
+            this.westernHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
+            this.westernHyrulePictureBox.Name = "westernHyrulePictureBox";
+            this.westernHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
+            this.westernHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.westernHyrulePictureBox.TabIndex = 0;
+            this.westernHyrulePictureBox.TabStop = false;
             // 
             // deathMountainTabPage
             // 
@@ -230,6 +250,19 @@
             this.deathMountainTabPage.TabIndex = 2;
             this.deathMountainTabPage.Text = "Death Mountain";
             this.deathMountainTabPage.UseVisualStyleBackColor = true;
+            this.deathMountainTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseDown);
+            this.deathMountainTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseMove);
+            this.deathMountainTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseUp);
+            // 
+            // deathMountainPictureBox
+            // 
+            this.deathMountainPictureBox.Enabled = false;
+            this.deathMountainPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.deathMountainPictureBox.Name = "deathMountainPictureBox";
+            this.deathMountainPictureBox.Size = new System.Drawing.Size(300, 200);
+            this.deathMountainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.deathMountainPictureBox.TabIndex = 0;
+            this.deathMountainPictureBox.TabStop = false;
             // 
             // easternHyruleTabPage
             // 
@@ -242,6 +275,19 @@
             this.easternHyruleTabPage.TabIndex = 1;
             this.easternHyruleTabPage.Text = "Eastern Hyrule";
             this.easternHyruleTabPage.UseVisualStyleBackColor = true;
+            this.easternHyruleTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseDown);
+            this.easternHyruleTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseMove);
+            this.easternHyruleTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseUp);
+            // 
+            // easternHyrulePictureBox
+            // 
+            this.easternHyrulePictureBox.Enabled = false;
+            this.easternHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
+            this.easternHyrulePictureBox.Name = "easternHyrulePictureBox";
+            this.easternHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
+            this.easternHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.easternHyrulePictureBox.TabIndex = 0;
+            this.easternHyrulePictureBox.TabStop = false;
             // 
             // mazeIslandTabPage
             // 
@@ -254,6 +300,19 @@
             this.mazeIslandTabPage.TabIndex = 3;
             this.mazeIslandTabPage.Text = "Maze Island";
             this.mazeIslandTabPage.UseVisualStyleBackColor = true;
+            this.mazeIslandTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseDown);
+            this.mazeIslandTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseMove);
+            this.mazeIslandTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseUp);
+            // 
+            // mazeIslandPictureBox
+            // 
+            this.mazeIslandPictureBox.Enabled = false;
+            this.mazeIslandPictureBox.Location = new System.Drawing.Point(6, 6);
+            this.mazeIslandPictureBox.Name = "mazeIslandPictureBox";
+            this.mazeIslandPictureBox.Size = new System.Drawing.Size(300, 200);
+            this.mazeIslandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.mazeIslandPictureBox.TabIndex = 0;
+            this.mazeIslandPictureBox.TabStop = false;
             // 
             // itemSummaryTabPage
             // 
@@ -442,49 +501,6 @@
             this.showDirectionsCheckBox.UseVisualStyleBackColor = true;
             this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.showDirectionsCheckBox_CheckedChanged);
             // 
-            // westernHyrulePictureBox
-            // 
-            this.westernHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
-            this.westernHyrulePictureBox.Name = "westernHyrulePictureBox";
-            this.westernHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
-            this.westernHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.westernHyrulePictureBox.TabIndex = 0;
-            this.westernHyrulePictureBox.TabStop = false;
-            // 
-            // deathMountainPictureBox
-            // 
-            this.deathMountainPictureBox.Location = new System.Drawing.Point(6, 6);
-            this.deathMountainPictureBox.Name = "deathMountainPictureBox";
-            this.deathMountainPictureBox.Size = new System.Drawing.Size(300, 200);
-            this.deathMountainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.deathMountainPictureBox.TabIndex = 0;
-            this.deathMountainPictureBox.TabStop = false;
-            // 
-            // easternHyrulePictureBox
-            // 
-            this.easternHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
-            this.easternHyrulePictureBox.Name = "easternHyrulePictureBox";
-            this.easternHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
-            this.easternHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.easternHyrulePictureBox.TabIndex = 0;
-            this.easternHyrulePictureBox.TabStop = false;
-            // 
-            // mazeIslandPictureBox
-            // 
-            this.mazeIslandPictureBox.Location = new System.Drawing.Point(6, 6);
-            this.mazeIslandPictureBox.Name = "mazeIslandPictureBox";
-            this.mazeIslandPictureBox.Size = new System.Drawing.Size(300, 200);
-            this.mazeIslandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.mazeIslandPictureBox.TabIndex = 0;
-            this.mazeIslandPictureBox.TabStop = false;
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -510,12 +526,16 @@
             this.panel1.PerformLayout();
             this.westernHyruleTabPage.ResumeLayout(false);
             this.westernHyruleTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).EndInit();
             this.deathMountainTabPage.ResumeLayout(false);
             this.deathMountainTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).EndInit();
             this.easternHyruleTabPage.ResumeLayout(false);
             this.easternHyruleTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).EndInit();
             this.mazeIslandTabPage.ResumeLayout(false);
             this.mazeIslandTabPage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).EndInit();
             this.itemSummaryTabPage.ResumeLayout(false);
             this.itemSummaryTabPage.PerformLayout();
             this.spellSummaryTabPage.ResumeLayout(false);
@@ -528,10 +548,6 @@
             this.panel6.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deathMountainPictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easternHyrulePictureBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
