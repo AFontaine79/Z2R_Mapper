@@ -439,7 +439,7 @@ namespace Z2R_Mapper
         {
             // Make sure this has been done, since this section of the table will not be
             // prebuilt by the calls to GetOverworldBitmap().
-            PopulateNewKasutoItemLocationInfo();
+            LoadNewKasutoItemLocationInfo();
 
             StringBuilder itemSummary = new StringBuilder(1024);
             ItemLocationInfo locationInfo;
@@ -503,6 +503,18 @@ namespace Z2R_Mapper
             }
 
             return itemSummary.ToString();
+        }
+
+        private void LoadNewKasutoItemLocationInfo()
+        {
+            foreach (NewKasutoItemArea itemArea in (NewKasutoItemArea[])Enum.GetValues(typeof(NewKasutoItemArea)))
+            {
+                _itemLocationTable[4, (int)itemArea] = new ItemLocationInfo
+                {
+                    locationName = NewKasutoItemAreaNames[(int)itemArea],
+                    item = _z2rReader.GetNewKasutoItem(itemArea),
+                };
+            }
         }
 
         private void AddItemToItemSummary(ref StringBuilder itemSummary, ItemLocationInfo locationInfo,
@@ -898,18 +910,6 @@ namespace Z2R_Mapper
                             break;
                     }
                 }
-            }
-        }
-
-        private void PopulateNewKasutoItemLocationInfo()
-        {
-            foreach (NewKasutoItemArea itemArea in (NewKasutoItemArea[])Enum.GetValues(typeof(NewKasutoItemArea)))
-            {
-                _itemLocationTable[4, (int)itemArea] = new ItemLocationInfo
-                {
-                    locationName = NewKasutoItemAreaNames[(int)itemArea],
-                    item = _z2rReader.GetNewKasutoItem(itemArea),
-                };
             }
         }
 

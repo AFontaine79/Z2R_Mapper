@@ -10,8 +10,8 @@ using Z2R_Mapper.Palace_Routing;
 
 namespace Z2R_Mapper
 {
-    // Zelda II has 16 terrain types
-    // This defines overworld appearance
+    // Zelda II has 16 terrain types that define overworld appearance.
+    // These values match those used within the ROM.
     public enum TerrainType
     {
         Town = 0,
@@ -62,7 +62,7 @@ namespace Z2R_Mapper
         MagicKeyBasement,
     }
 
-    // Same values as used in the ROM
+    // These values match the collectible item codes used in the ROM.
     public enum CollectibleItem
     {
         Candle = 0,     // Palace items
@@ -127,6 +127,10 @@ namespace Z2R_Mapper
         public Spell[] startingSpells;
     };
 
+    // For convenience, this is ROM bank and CPU address as they appear when
+    // looking at disassembled code.  The ROM bank load address (not provided
+    // by this structure) needs to be subtracted from the CPU address to
+    // get the offset within the ROM bank.
     public class AbsoluteROMAddress
     {
         public int RomBankNumber;
@@ -152,8 +156,13 @@ namespace Z2R_Mapper
 
         private bool _newKasutoIsHidden;
         private bool _threeEyeRockPalaceIsHidden;
+
+        // Number of heart containers available as collectible items.
+        // This is counted as Z2R_Reader scans through all the item locations.
         private int _extraHeartContainers;
 
+        // These constants are for uncompressing overworld terrain data.
+        // Not sure if using them increases or decreases readability.
         private static readonly Byte CompressedOverworldDataTerrainTypeMask = 0x0F;
         private static readonly Byte CompressedOverworldDataRepeatCountMask = 0xF0;
         private static readonly int CompressedOverworldDataRepeatCountShiftCount = 4;
@@ -225,6 +234,8 @@ namespace Z2R_Mapper
         // Part of the region info is which side-scroll area we are entering.
         // "Side-scroll area" is what I call a set of side-scrolling "rooms".  Each region has up to 63 "rooms".
         // These are the values used by the game itself.
+        // This is what CF207 calls the "Normalized World Number": https://github.com/cfrantz/z2doc/wiki/world_numbers
+        //   See column "Normalized World" in the second table.
         private enum SideScrollArea
         {
             Overworld = 0,      // For this case, the game also analyzes the overworld area selection to figure out which rooms to load.

@@ -14,6 +14,7 @@ namespace Z2R_Mapper
     public partial class Form1 : Form
     {
         private Z2R_Mapper _z2rMapper;
+        private bool _romLoaded = false;
 
         private double _zoomFactor = 1.0;
         private Bitmap _westernHyruleImageBackup;
@@ -26,6 +27,10 @@ namespace Z2R_Mapper
 
         private bool _easternHyruleAutoScrollNeedsAdjustment = false;
         private Point _easternHyruleMapAutoScrollPosition;
+
+        private bool _panning = false;
+        private Point _autoScrollStartPosition = Point.Empty;
+        private Point _mouseStartingLocation = Point.Empty;
 
         public Form1()
         {
@@ -49,18 +54,46 @@ namespace Z2R_Mapper
             }
         }
 
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+            if (files.Length > 0)
+            {
+                OpenROMFile(files[0]);
+            }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
+
+            // Allow opening of a ROM file by dragging the file on top of the executable or its shortcut.
+            string[] args = Environment.GetCommandLineArgs();
+            if (args.Length > 1)
+            {
+                OpenROMFile(args[1]);
+            }
+        }
+
         private void OpenROMFile(String filename)
         {
-            //try
-            //{
+            try
+            {
                 _z2rMapper = new Z2R_Mapper(filename);
+                ResetFormSettings();
                 LoadDataIntoForms();
                 this.Text = string.Format("{0} - Z2R Mapper", System.IO.Path.GetFileNameWithoutExtension(filename));
-            //}
-            //catch (System.Exception e)
-            //{
-            //    MessageBox.Show(e.Message);
-            //}
+                _romLoaded = true;
+            }
+            catch (System.Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void LoadDataIntoForms()
@@ -96,13 +129,90 @@ namespace Z2R_Mapper
             deathMountainTabPage.AutoScrollPosition = Point.Empty;
             mazeIslandTabPage.AutoScrollPosition = Point.Empty;
 
-            ResetFormSettings();
-
             itemSummaryTextBox.Text = _z2rMapper.GetItemSummary();
             spellSummaryTextBox.Text = _z2rMapper.GetSpellSummary();
             spellCostsTextBox.Text = _z2rMapper.GetSpellCostsSummary();
             RedrawStatsSummary();
             RedrawPalaceRoutingSummary();
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomOutMaps();
+        }
+
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomInMaps();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Add:
+                case Keys.Oemplus:
+                    ZoomInMaps();
+                    e.Handled = true;
+                    break;
+
+                case Keys.Subtract:
+                case Keys.OemMinus:
+                    ZoomOutMaps();
+                    e.Handled = true;
+                    break;
+
+                default:
+                    e.Handled = false;
+                    break;
+            }
+        }
+
+        private void ZoomOutMaps()
+        {
+            if (_zoomFactor > 0.25)
+            {
+                _zoomFactor -= 0.25;
+            }
+            ResizeMaps();
+        }
+
+        private void ZoomInMaps()
+        {
+            if (_zoomFactor < 1.5)
+            {
+                _zoomFactor += 0.25;
+            }
+            ResizeMaps();
+        }
+
+        private void ResizeMaps()
+        {
+            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
+            if (_westernHyruleImageBackup != null)
+            {
+                Size newSize = new Size((int)(_westernHyruleImageBackup.Width * _zoomFactor), (int)(_westernHyruleImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_westernHyruleImageBackup, newSize);
+                westernHyrulePictureBox.Image = bmp;
+            }
+            if (_easternHyruleImageBackup != null)
+            {
+                Size newSize = new Size((int)(_easternHyruleImageBackup.Width * _zoomFactor), (int)(_easternHyruleImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_easternHyruleImageBackup, newSize);
+                easternHyrulePictureBox.Image = bmp;
+            }
+            if (_deathMountainImageBackup != null)
+            {
+                Size newSize = new Size((int)(_deathMountainImageBackup.Width * _zoomFactor), (int)(_deathMountainImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_deathMountainImageBackup, newSize);
+                deathMountainPictureBox.Image = bmp;
+            }
+            if (_mazeIslandImageBackup != null)
+            {
+                Size newSize = new Size((int)(_mazeIslandImageBackup.Width * _zoomFactor), (int)(_mazeIslandImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_mazeIslandImageBackup, newSize);
+                mazeIslandPictureBox.Image = bmp;
+            }
         }
 
         private Point CenterMapOnXY(TabPage pictureBoxContainer, Point xyLoc)
@@ -134,29 +244,22 @@ namespace Z2R_Mapper
 
         private void RedrawStatsSummary()
         {
-            startingStatsTextBox.Text = _z2rMapper.GetStartingStatsSummary(
-                showMaxHeartContainersCheckBox.Checked, showCombinedSpellCheckBox.Checked);
+            if(_romLoaded)
+            {
+                startingStatsTextBox.Text = _z2rMapper.GetStartingStatsSummary(
+                    showMaxHeartContainersCheckBox.Checked, showCombinedSpellCheckBox.Checked);
+            }
         }
 
         private void RedrawPalaceRoutingSummary()
         {
-            palaceRoutingTextBox.Text = _z2rMapper.GetPalaceRoutingSummary(
-                showDirectionsCheckBox.Checked, 
-                showRequirementsCheckBox.Checked,
-                showItemToBossCheckBox.Checked);
-        }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            string[] args = Environment.GetCommandLineArgs();
-
-            // Allow opening of a ROM file by dragging the file on top of the executable.
-            if (args.Length > 1)
+            if(_romLoaded)
             {
-                OpenROMFile(args[1]);
+                palaceRoutingTextBox.Text = _z2rMapper.GetPalaceRoutingSummary(
+                    showDirectionsCheckBox.Checked,
+                    showRequirementsCheckBox.Checked,
+                    showItemToBossCheckBox.Checked);
             }
-
-            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
         }
 
         private void showMaxHeartContainersCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -194,30 +297,6 @@ namespace Z2R_Mapper
         {
             RedrawPalaceRoutingSummary();
         }
-
-        private void Form1_DragEnter(object sender, DragEventArgs e)
-        {
-            e.Effect = DragDropEffects.Copy;
-        }
-
-        private void Form1_DragDrop(object sender, DragEventArgs e)
-        {
-            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            if(files.Length > 0)
-            {
-                OpenROMFile(files[0]);
-            }
-        }
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            AboutBox aboutBox = new AboutBox();
-            aboutBox.ShowDialog();
-        }
-
-        private bool _panning = false;
-        private Point _autoScrollStartPosition = Point.Empty;
-        private Point _mouseStartingLocation = Point.Empty;
 
         private void westernHyruleTabPage_MouseDown(object sender, MouseEventArgs e)
         {
@@ -332,8 +411,8 @@ namespace Z2R_Mapper
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tabControl = ((TabControl)sender);
-            System.Diagnostics.Debug.WriteLine("Tab changed to " + tabControl.SelectedIndex);
 
+            // TODO: Should I be using tabControl.SelectedTab here?
             if(tabControl.SelectedIndex == 1 && _westernHyruleAutoScrollNeedsAdjustment)
             {
                 westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
@@ -347,83 +426,10 @@ namespace Z2R_Mapper
             }
         }
 
-        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZoomOutMaps();
-        }
-
-        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ZoomInMaps();
-        }
-
-        private void Form1_KeyDown(object sender, KeyEventArgs e)
-        {
-            switch(e.KeyCode)
-            {
-                case Keys.Add:
-                case Keys.Oemplus:
-                    ZoomInMaps();
-                    e.Handled = true;
-                    break;
-
-                case Keys.Subtract:
-                case Keys.OemMinus:
-                    ZoomOutMaps();
-                    e.Handled = true;
-                    break;
-
-                default:
-                    e.Handled = false;
-                    break;
-            }
-        }
-
-        private void ZoomOutMaps()
-        {
-            if (_zoomFactor > 0.25)
-            {
-                _zoomFactor -= 0.25;
-            }
-            ResizeMaps();
-        }
-
-        private void ZoomInMaps()
-        {
-            if (_zoomFactor < 1.5)
-            {
-                _zoomFactor += 0.25;
-            }
-            ResizeMaps();
-        }
-
-        private void ResizeMaps()
-        {
-            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
-            if(_westernHyruleImageBackup != null)
-            {
-                Size newSize = new Size((int)(_westernHyruleImageBackup.Width * _zoomFactor), (int)(_westernHyruleImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_westernHyruleImageBackup, newSize);
-                westernHyrulePictureBox.Image = bmp;
-            }
-            if (_easternHyruleImageBackup != null)
-            {
-                Size newSize = new Size((int)(_easternHyruleImageBackup.Width * _zoomFactor), (int)(_easternHyruleImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_easternHyruleImageBackup, newSize);
-                easternHyrulePictureBox.Image = bmp;
-            }
-            if (_deathMountainImageBackup != null)
-            {
-                Size newSize = new Size((int)(_deathMountainImageBackup.Width * _zoomFactor), (int)(_deathMountainImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_deathMountainImageBackup, newSize);
-                deathMountainPictureBox.Image = bmp;
-            }
-            if (_mazeIslandImageBackup != null)
-            {
-                Size newSize = new Size((int)(_mazeIslandImageBackup.Width * _zoomFactor), (int)(_mazeIslandImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_mazeIslandImageBackup, newSize);
-                mazeIslandPictureBox.Image = bmp;
-            }
+            AboutBox aboutBox = new AboutBox();
+            aboutBox.ShowDialog();
         }
     }
 }
