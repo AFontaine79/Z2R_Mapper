@@ -226,44 +226,45 @@ namespace Z2R_Mapper
         };
         private readonly ConnectionInfo[] DeathMountainAndMazeIslandConnectionInfoTable =
         {
+            // Cave letterings match http://www.videogamemaps.net/maps/nes/zelda2/Death%20Mountain%20Caves%20-%20Mephea.png
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveA },   // 00
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveA },   // 01
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveB },   // 02
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveB },   // 03
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveC },   // 04
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveC },   // 05
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveD },   // 06
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveD },   // 07
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveE },   // 08
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveE },   // 09
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF },   // 10
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF },   // 11
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG },   // 12
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG },   // 13
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveJ },   // 14
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveJ },   // 15
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveK },   // 16
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveK },   // 17
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveL },   // 18
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveL },   // 19
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveM },   // 20
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveM },   // 21
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveN },   // 22
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveN },   // 23
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveO },   // 24
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveO },   // 25
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveP },   // 26
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveP },   // 27
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveO },   // 02
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveO },   // 03
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveP },   // 04
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveP },   // 05
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveB },   // 06
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveB },   // 07
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveC },   // 08
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveC },   // 09
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH },   // 10
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH },   // 11
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveD },   // 12
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveD },   // 13
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI },   // 14
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI },   // 15
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveJ },   // 16
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveJ },   // 17
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveE },   // 18
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveE },   // 19
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveK },   // 20
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveK },   // 21
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveL },   // 22
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveL },   // 23
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveM },   // 24
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveM },   // 25
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveN },   // 26
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveN },   // 27
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.LookupItem,                                                        // 28
                 includeInItemSummary = true, itemSummaryIndex = 0, locationName = "Hammer Cave" },
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH3 },  // 29
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH4 },  // 30
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH1 },  // 31
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveH2 },  // 32
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI1 },  // 33
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI2 },  // 34
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI3 },  // 35
-            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveI4 },  // 36
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG3 },  // 29
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG4 },  // 30
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG1 },  // 31
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveG2 },  // 32
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF1 },  // 33
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF2 },  // 34
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF3 },  // 35
+            new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.CaveF4 },  // 36
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.Forced_Encounter },
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.TagWithSpecificImage, imageToUse = Properties.Resources.Forced_Encounter },
             new ConnectionInfo { drawingInstructions = ConnectionInfoDrawingInstructions.LookupItem,                                                        // 39

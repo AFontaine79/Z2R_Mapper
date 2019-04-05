@@ -310,4 +310,34 @@
   <data name="AboutPic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AboutPic.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="CaveF1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveF1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveF2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveF2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveF3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveF3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveF4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveF4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveG2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveG2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveG3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveG3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveG4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveG4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveH.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="CaveI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CaveI.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

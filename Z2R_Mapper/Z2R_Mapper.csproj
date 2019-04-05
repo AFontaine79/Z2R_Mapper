@@ -289,5 +289,35 @@
   <ItemGroup>
     <None Include="Resources\AboutPic.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveF1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveF2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveF3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveF4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveG1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveG2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveG3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveG4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveH.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\CaveI.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
