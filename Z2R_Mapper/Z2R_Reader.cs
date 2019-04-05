@@ -621,27 +621,34 @@ namespace Z2R_Mapper
         {
             // Set up helper classes
             _romInfo = new ROM_Info(romFileName);
-            _ppuBitmapGenerator = new PPU_Bitmap_Generator(_romInfo);
-            _newKasutoIsHidden = false;
-            _threeEyeRockPalaceIsHidden = false;
-            _extraHeartContainers = 0;
 
-            // Pre-load the room connection tables before Z2R_Mapper asks for palace routing solutions
-            LoadPalaceRoomConnectionTables();
+            try
+            {
+                _ppuBitmapGenerator = new PPU_Bitmap_Generator(_romInfo);
+                _newKasutoIsHidden = false;
+                _threeEyeRockPalaceIsHidden = false;
+                _extraHeartContainers = 0;
 
-            // Pre-generate images for overworld terrain tiles and collectible item sprites
-            OverworldBackgroundTileBitmaps = new Bitmap[Enum.GetValues(typeof(TerrainType)).Length];  // Better way to do this?
-            foreach (TerrainType terrainType in (TerrainType[])Enum.GetValues(typeof(TerrainType)))
-            {
-                OverworldBackgroundTileBitmaps[(int)terrainType] = GenerateOverworldTerrainTileBitmap(terrainType);
-            }
-            CollectibleItemBitmaps = new Bitmap[(int)CollectibleItem.Fairy + 1];
-            foreach (CollectibleItem item in (CollectibleItem[])Enum.GetValues(typeof(CollectibleItem)))
-            {
-                if((int)item <= (int)CollectibleItem.Fairy)
+                // Pre-load the room connection tables before Z2R_Mapper asks for palace routing solutions
+                LoadPalaceRoomConnectionTables();
+
+                // Pre-generate images for overworld terrain tiles and collectible item sprites
+                OverworldBackgroundTileBitmaps = new Bitmap[Enum.GetValues(typeof(TerrainType)).Length];  // Better way to do this?
+                foreach (TerrainType terrainType in (TerrainType[])Enum.GetValues(typeof(TerrainType)))
                 {
-                    CollectibleItemBitmaps[(int)item] = GenerateCollectibleItemBitmap(item);
+                    OverworldBackgroundTileBitmaps[(int)terrainType] = GenerateOverworldTerrainTileBitmap(terrainType);
                 }
+                CollectibleItemBitmaps = new Bitmap[(int)CollectibleItem.Fairy + 1];
+                foreach (CollectibleItem item in (CollectibleItem[])Enum.GetValues(typeof(CollectibleItem)))
+                {
+                    if ((int)item <= (int)CollectibleItem.Fairy)
+                    {
+                        CollectibleItemBitmaps[(int)item] = GenerateCollectibleItemBitmap(item);
+                    }
+                }
+            } catch
+            {
+                throw new InvalidDataException("Error parsing ROM data.  This may not be a valid Zelda II ROM file.");
             }
         }
 

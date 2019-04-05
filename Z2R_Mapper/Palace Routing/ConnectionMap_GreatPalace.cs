@@ -91,23 +91,23 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 5, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 10, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 5, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 10, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]    // 10
                 {
-                    new RoomExit { isValid = true, indexOfNextRoom = 9, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 15, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 9, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 15, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 11, passThroughFlags = new byte[] { 0x00, 0x00, 0x02, 0x02 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 11, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x02, 0x02 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = true, roomExits = new RoomExit[]    // 11
                 {
                     new RoomExit { isValid = true, indexOfNextRoom = 10 },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 36, passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x02 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 36, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x02 } },
                     new RoomExit { isValid = false },
                 }
                 },
@@ -115,8 +115,8 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 8, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 13, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 8, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 13, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 13
@@ -124,8 +124,8 @@ namespace Z2R_Mapper.Palace_Routing
                     // Coming up elevator and going left, glove and upstab are required.  Technically jump/fairy is not
                     // required, although it's much easier to get through with one of those spells.  I am choosing not
                     // to set the "Jump or Fairy required" flag when coming up elevator and going left.
-                    new RoomExit { isValid = true, indexOfNextRoom = 12, passThroughFlags = new byte[] { 0x00, 0x00, 0x22, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 16, passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x12 }  },
+                    new RoomExit { isValid = true, indexOfNextRoom = 12, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x22, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 16, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x12 }  },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
                 }
@@ -140,7 +140,7 @@ namespace Z2R_Mapper.Palace_Routing
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 15
                 {
-                    new RoomExit { isValid = true, indexOfNextRoom = 14, passThroughFlags = new byte[] { 0x00, 0x08, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 14, passThroughFlags = new UInt16[] { 0x00, 0x08, 0x00, 0x00 } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = true, indexOfNextRoom = 10 },
                     new RoomExit { isValid = false },
@@ -222,8 +222,8 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 21, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 26, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 21, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 26, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 26
@@ -238,8 +238,8 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 23, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 28, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 23, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 28, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 28
@@ -277,8 +277,8 @@ namespace Z2R_Mapper.Palace_Routing
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 32
                 {
                     // See comment for room 13.
-                    new RoomExit { isValid = true, indexOfNextRoom = 31, passThroughFlags = new byte[] { 0x00, 0x00, 0x22, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 34, passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x12 }  },
+                    new RoomExit { isValid = true, indexOfNextRoom = 31, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x22, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 34, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x12 }  },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
                 }
@@ -303,8 +303,8 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 24, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 36, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 24, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 36, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 36
@@ -349,15 +349,11 @@ namespace Z2R_Mapper.Palace_Routing
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = true, roomExits = new RoomExit[]   // 41 - Extra Life Room
                 {
-                    // This room is marked only as "glove required" even though technically it should be
-                    // "glove or fairy required".  Also, the "upstab required" flag is not set as it is
-                    // possible to get through the block barrier without upstab.
-                    // Note: Zelda II Randomizer Tracker by Angry Larry states "UPSTAB NOT REQUIRED" for
-                    // this room.
+                    // Upstab not required with glove only and no fairy spell.
                     new RoomExit { isValid = true, indexOfNextRoom = 40, impassibilityFlags = new bool[] { true, false, false, false } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = true, indexOfNextRoom = 45, impassibilityFlags = new bool[] { true, false, false, false },
-                        passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x02 } },
+                        passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x80 } },
                     new RoomExit { isValid = true, indexOfNextRoom = 42, impassibilityFlags = new bool[] { false, false, false, true } },
                 }
                 },
@@ -373,16 +369,16 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 39, passThroughFlags = new byte[] { 0x02, 0x00, 0x00, 0x00 } },
-                    new RoomExit { isValid = true, indexOfNextRoom = 44, passThroughFlags = new byte[] { 0x00, 0x02, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 39, passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 44, passThroughFlags = new UInt16[] { 0x00, 0x02, 0x00, 0x00 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 44
                 {
-                    new RoomExit { isValid = true, indexOfNextRoom = 43, passThroughFlags = new byte[] { 0x08, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 43, passThroughFlags = new UInt16[] { 0x08, 0x00, 0x00, 0x00 } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 45, passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x08 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 45, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x08 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = true, roomExits = new RoomExit[]   // 45 - L7 Room
@@ -393,7 +389,7 @@ namespace Z2R_Mapper.Palace_Routing
                     new RoomExit { isValid = true, indexOfNextRoom = 44, impassibilityFlags = new bool[] { true, false, false, false } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = true, indexOfNextRoom = 48, impassibilityFlags = new bool[] { false, true, true, true },
-                        passThroughFlags = new byte[] { 0x12, 0x00, 0x00, 0x00 } },
+                        passThroughFlags = new UInt16[] { 0x12, 0x00, 0x00, 0x00 } },
                     new RoomExit { isValid = true, indexOfNextRoom = 46, impassibilityFlags = new bool[] { false, true, true, true } },
                 }
                 },
@@ -455,10 +451,10 @@ namespace Z2R_Mapper.Palace_Routing
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 53 - Thunderbird
                 {
-                    new RoomExit { isValid = true, indexOfNextRoom = 52, passThroughFlags = new byte[] { 0x80, 0x00, 0x00, 0x00 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 52, passThroughFlags = new UInt16[] { 0x100, 0x00, 0x00, 0x00 } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = false },
-                    new RoomExit { isValid = true, indexOfNextRoom = 54, passThroughFlags = new byte[] { 0x00, 0x00, 0x00, 0x80 } },
+                    new RoomExit { isValid = true, indexOfNextRoom = 54, passThroughFlags = new UInt16[] { 0x00, 0x00, 0x00, 0x100 } },
                 }
                 },
                 new RoomConnectionInfo { pitInsteadOfElevator = false, roomExits = new RoomExit[]   // 54 - Dark Link

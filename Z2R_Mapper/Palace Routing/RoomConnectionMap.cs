@@ -26,7 +26,8 @@ namespace Z2R_Mapper.Palace_Routing
         DownstabRequired = 0x10,
         UpstabRequired = 0x20,
         FightRebonack = 0x40,
-        FightThunderbird = 0x80,
+        GloveOrFairyRequired = 0x80,
+        FightThunderbird = 0x100,
     }
 
     public struct RoomConnectionInfo
@@ -43,13 +44,13 @@ namespace Z2R_Mapper.Palace_Routing
         public bool isValid;
         public int indexOfNextRoom;
         public bool[] impassibilityFlags;
-        public Byte[] passThroughFlags;
+        public UInt16[] passThroughFlags;
     }
 
     public class RoutingSolution
     {
         public int numLockedDoors;
-        public byte requirementFlags;
+        public UInt16 requirementFlags;
         public Direction[] directions;
 
         public RoutingSolution(int numConnections)
@@ -221,36 +222,43 @@ namespace Z2R_Mapper.Palace_Routing
 
                 // If passing through room in this direction passes through a locked door,
                 // then we increment the locked door count.
-                byte passthroughFlags;
+                UInt16 passthroughFlags;
                 if(previousDirection == Direction.Invalid)
                 {
                     passthroughFlags = 0;
                 } else
                 {
-                    byte[] passThroughFlagsList = exitInfo.passThroughFlags ?? new byte[] { 0, 0, 0, 0 };
+                    UInt16[] passThroughFlagsList = exitInfo.passThroughFlags ?? new UInt16[] { 0, 0, 0, 0 };
                     passthroughFlags = passThroughFlagsList[(int)previousDirection];
                 }
 
-                if ((passthroughFlags & (byte)PassthroughFlag.LockedDoor) != 0)
+                if ((passthroughFlags & (UInt16)PassthroughFlag.LockedDoor) != 0)
                 {
                     thisSolution.numLockedDoors++;
                 }
 
                 // Now we zero out the locked door flag, and OR in the set of requirements
                 // from this room to the total requirements set.
-                byte lockedDoorFlag = (byte)PassthroughFlag.LockedDoor;
-                passthroughFlags &= (byte)(~lockedDoorFlag);
+                UInt16 lockedDoorFlag = (UInt16)PassthroughFlag.LockedDoor;
+                passthroughFlags &= (UInt16)(~lockedDoorFlag);
                 thisSolution.requirementFlags |= passthroughFlags;
 
                 previousDirection = currentDirection;
             }
 
             // Now that we have created the routing solution, there is one more thing to do.
-            // If the Fairy Required flag is set, this nulls the Jump or Fairy Required flag.
-            if ((thisSolution.requirementFlags & (byte)PassthroughFlag.FairyRequired) != 0)
+            // We need to have specific requirements override either/or requirements.
+            if ((thisSolution.requirementFlags & (UInt16)PassthroughFlag.FairyRequired) != 0)
             {
-                byte jumpOrFairyFlag = (byte)PassthroughFlag.JumpOrFairyRequired;
-                thisSolution.requirementFlags &= (byte)(~jumpOrFairyFlag);
+                UInt16 jumpOrFairyFlag = (UInt16)PassthroughFlag.JumpOrFairyRequired;
+                thisSolution.requirementFlags &= (UInt16)(~jumpOrFairyFlag);
+                UInt16 gloveOrFairyFlag = (UInt16)PassthroughFlag.GloveOrFairyRequired;
+                thisSolution.requirementFlags &= (UInt16)(~gloveOrFairyFlag);
+            }
+            if ((thisSolution.requirementFlags & (UInt16)PassthroughFlag.GloveRequired) != 0)
+            {
+                UInt16 gloveOrFairyFlag = (UInt16)PassthroughFlag.GloveOrFairyRequired;
+                thisSolution.requirementFlags &= (UInt16)(~gloveOrFairyFlag);
             }
 
             _routingSolutionSet.Add(thisSolution);

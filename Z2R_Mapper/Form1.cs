@@ -88,7 +88,6 @@ namespace Z2R_Mapper
                 ResetFormSettings();
                 LoadDataIntoForms();
                 this.Text = string.Format("{0} - Z2R Mapper", System.IO.Path.GetFileNameWithoutExtension(filename));
-                _romLoaded = true;
             }
             catch (System.Exception e)
             {
@@ -102,6 +101,8 @@ namespace Z2R_Mapper
             _easternHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
             _deathMountainImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
             _mazeIslandImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
+
+            _romLoaded = true;
 
             // This function creates the scaled bitmaps and attaches them to the PictureBoxes.
             ResizeMaps();

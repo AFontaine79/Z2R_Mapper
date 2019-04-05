@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -127,6 +128,7 @@ namespace Z2R_Mapper
             "downstab required",
             "upstab required",
             "Rebonack required",
+            "glove or fairy required",
             "Thunderbird required",
         };
 
@@ -1026,7 +1028,7 @@ namespace Z2R_Mapper
                 routingSummary.Append("No requirements");
             } else
             {
-                byte requirementFlags = routingSolution.requirementFlags;
+                UInt16 requirementFlags = routingSolution.requirementFlags;
                 if (routingSolution.numLockedDoors == 1)
                 {
                     routingSummary.Append("1 locked door");
@@ -1045,7 +1047,7 @@ namespace Z2R_Mapper
 
                 // We don't bail out of the for loop as soon as requirementFlags==0 just in case we
                 // need to add the extra Rebonack requirement.
-                for (int requirementNameIndex = 0; requirementNameIndex < 8; requirementNameIndex++)
+                for (int requirementNameIndex = 0; requirementNameIndex < 16; requirementNameIndex++)
                 {
                     if ((requirementFlags & 0x01) > 0)
                     {
@@ -1084,24 +1086,31 @@ namespace Z2R_Mapper
 
         private void GeneratePalaceRoutingSolutionsTable()
         {
-            _allPalaceRoutingSolutions = new RoutingSolution[7][][];
-            for (int palaceIndex = 0; palaceIndex < 7; palaceIndex++)
+            try
             {
-                _allPalaceRoutingSolutions[palaceIndex] = new RoutingSolution[3][];
-                for (int routeSelection = 0; routeSelection < 3; routeSelection++)
+                _allPalaceRoutingSolutions = new RoutingSolution[7][][];
+                for (int palaceIndex = 0; palaceIndex < 7; palaceIndex++)
                 {
-                    RoutingSolution[] solutionSet = _z2rReader.DoPalacePathFindOperation(palaceIndex + 1, 
-                        (PalaceRouteType)routeSelection);
-                    if((solutionSet != null) && ((PalaceRouteType)routeSelection == PalaceRouteType.EntranceToItem))
+                    _allPalaceRoutingSolutions[palaceIndex] = new RoutingSolution[3][];
+                    for (int routeSelection = 0; routeSelection < 3; routeSelection++)
                     {
-                        foreach(RoutingSolution solution in solutionSet)
+                        RoutingSolution[] solutionSet = _z2rReader.DoPalacePathFindOperation(palaceIndex + 1,
+                            (PalaceRouteType)routeSelection);
+                        if ((solutionSet != null) && ((PalaceRouteType)routeSelection == PalaceRouteType.EntranceToItem))
                         {
-                            // Pathfinder algorithm does not account for final locked door guarding item.
-                            solution.numLockedDoors++;
+                            foreach (RoutingSolution solution in solutionSet)
+                            {
+                                // Pathfinder algorithm does not account for final locked door guarding item.
+                                solution.numLockedDoors++;
+                            }
                         }
+                        _allPalaceRoutingSolutions[palaceIndex][routeSelection] = solutionSet;
                     }
-                    _allPalaceRoutingSolutions[palaceIndex][routeSelection] = solutionSet;
                 }
+            }
+            catch
+            {
+                throw new InvalidDataException("Error parsing ROM data.  This may not be a valid Zelda II ROM file.");
             }
         }
     }
