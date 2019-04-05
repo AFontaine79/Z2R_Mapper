@@ -32,7 +32,10 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZeldaIIROMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.zoomOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zoomFactorTextBox = new System.Windows.Forms.ToolStripTextBox();
+            this.mainTabControl = new System.Windows.Forms.TabControl();
             this.startingStatsTabPage = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.startingStatsTextBox = new System.Windows.Forms.TextBox();
@@ -63,7 +66,7 @@
             this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
             this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.mainTabControl.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,11 +92,14 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.aboutToolStripMenuItem,
+            this.zoomOutToolStripMenuItem,
+            this.zoomInToolStripMenuItem,
+            this.zoomFactorTextBox});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(898, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(898, 31);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -102,7 +108,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openZeldaIIROMFileToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 27);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // openZeldaIIROMFileToolStripMenuItem
@@ -116,29 +122,50 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 24);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(62, 27);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // tabControl1
+            // zoomOutToolStripMenuItem
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.zoomOutToolStripMenuItem.Name = "zoomOutToolStripMenuItem";
+            this.zoomOutToolStripMenuItem.Size = new System.Drawing.Size(109, 27);
+            this.zoomOutToolStripMenuItem.Text = "Zoom Out (-)";
+            this.zoomOutToolStripMenuItem.Click += new System.EventHandler(this.zoomOutToolStripMenuItem_Click);
+            // 
+            // zoomInToolStripMenuItem
+            // 
+            this.zoomInToolStripMenuItem.Name = "zoomInToolStripMenuItem";
+            this.zoomInToolStripMenuItem.Size = new System.Drawing.Size(101, 27);
+            this.zoomInToolStripMenuItem.Text = "Zoom In (+)";
+            this.zoomInToolStripMenuItem.Click += new System.EventHandler(this.zoomInToolStripMenuItem_Click);
+            // 
+            // zoomFactorTextBox
+            // 
+            this.zoomFactorTextBox.Name = "zoomFactorTextBox";
+            this.zoomFactorTextBox.ReadOnly = true;
+            this.zoomFactorTextBox.Size = new System.Drawing.Size(100, 27);
+            // 
+            // mainTabControl
+            // 
+            this.mainTabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.startingStatsTabPage);
-            this.tabControl1.Controls.Add(this.westernHyruleTabPage);
-            this.tabControl1.Controls.Add(this.deathMountainTabPage);
-            this.tabControl1.Controls.Add(this.easternHyruleTabPage);
-            this.tabControl1.Controls.Add(this.mazeIslandTabPage);
-            this.tabControl1.Controls.Add(this.itemSummaryTabPage);
-            this.tabControl1.Controls.Add(this.spellSummaryTabPage);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Location = new System.Drawing.Point(12, 31);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(0);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(874, 565);
-            this.tabControl1.TabIndex = 1;
+            this.mainTabControl.Controls.Add(this.startingStatsTabPage);
+            this.mainTabControl.Controls.Add(this.westernHyruleTabPage);
+            this.mainTabControl.Controls.Add(this.deathMountainTabPage);
+            this.mainTabControl.Controls.Add(this.easternHyruleTabPage);
+            this.mainTabControl.Controls.Add(this.mazeIslandTabPage);
+            this.mainTabControl.Controls.Add(this.itemSummaryTabPage);
+            this.mainTabControl.Controls.Add(this.spellSummaryTabPage);
+            this.mainTabControl.Controls.Add(this.tabPage1);
+            this.mainTabControl.Location = new System.Drawing.Point(12, 31);
+            this.mainTabControl.Margin = new System.Windows.Forms.Padding(0);
+            this.mainTabControl.Name = "mainTabControl";
+            this.mainTabControl.SelectedIndex = 0;
+            this.mainTabControl.Size = new System.Drawing.Size(874, 565);
+            this.mainTabControl.TabIndex = 1;
+            this.mainTabControl.SelectedIndexChanged += new System.EventHandler(this.mainTabControl_SelectedIndexChanged);
             // 
             // startingStatsTabPage
             // 
@@ -507,8 +534,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 608);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.menuStrip1);
+            this.KeyPreview = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form1";
@@ -516,9 +544,10 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.mainTabControl.ResumeLayout(false);
             this.startingStatsTabPage.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -558,7 +587,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openZeldaIIROMFileToolStripMenuItem;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabControl mainTabControl;
         private System.Windows.Forms.TabPage westernHyruleTabPage;
         private System.Windows.Forms.TabPage easternHyruleTabPage;
         private System.Windows.Forms.TabPage deathMountainTabPage;
@@ -589,6 +618,9 @@
         private System.Windows.Forms.TextBox palaceRoutingTextBox;
         private System.Windows.Forms.CheckBox showRequirementsCheckBox;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zoomInToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zoomOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripTextBox zoomFactorTextBox;
     }
 }
 

@@ -15,10 +15,17 @@ namespace Z2R_Mapper
     {
         private Z2R_Mapper _z2rMapper;
 
+        private double _zoomFactor = 1.0;
         private Bitmap _westernHyruleImageBackup;
         private Bitmap _easternHyruleImageBackup;
         private Bitmap _deathMountainImageBackup;
         private Bitmap _mazeIslandImageBackup;
+
+        private bool _westernHyruleAutoScrollNeedsAdjustment = false;
+        private Point _westernHyruleMapAutoScrollPosition;
+
+        private bool _easternHyruleAutoScrollNeedsAdjustment = false;
+        private Point _easternHyruleMapAutoScrollPosition;
 
         public Form1()
         {
@@ -59,19 +66,70 @@ namespace Z2R_Mapper
         private void LoadDataIntoForms()
         {
             _westernHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.WesternHyrule);
-            westernHyrulePictureBox.Image = _westernHyruleImageBackup;
             _easternHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
-            easternHyrulePictureBox.Image = _easternHyruleImageBackup;
             _deathMountainImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
-            deathMountainPictureBox.Image = _deathMountainImageBackup;
             _mazeIslandImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
-            mazeIslandPictureBox.Image = _mazeIslandImageBackup;
+
+            // This function creates the scaled bitmaps and attaches them to the PictureBoxes.
+            ResizeMaps();
+
+            _westernHyruleMapAutoScrollPosition = CenterMapOnXY(westernHyruleTabPage, _z2rMapper.GetBitmapXYAtCenterOfNorthPalace());
+            westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
+            if(westernHyruleTabPage.AutoScrollPosition == Point.Empty)
+            {
+                // This tab page has not been shown yet.  Adjust the image location when the page is shown.
+                // This must be something to do with Windows forms and tab pages.  It seems the user must
+                // have clicked over to this tab page before we can actively maniuplate it.  If the value
+                // we just set reads back as zero, then we have to wait and assign the value again when the
+                // tab page becomes visible.
+                _westernHyruleAutoScrollNeedsAdjustment = true;
+            }
+
+            _easternHyruleMapAutoScrollPosition = CenterMapOnXY(easternHyruleTabPage, _z2rMapper.GetBitmapXYAtCenterOfEasternHyruleRaftLocation());
+            easternHyruleTabPage.AutoScrollPosition = _easternHyruleMapAutoScrollPosition;
+            if(easternHyruleTabPage.AutoScrollPosition == Point.Empty)
+            {
+                // This tab page has not been shown yet.  Adjust the image location when the page is shown.
+                _easternHyruleAutoScrollNeedsAdjustment = true;
+            }
+
+            deathMountainTabPage.AutoScrollPosition = Point.Empty;
+            mazeIslandTabPage.AutoScrollPosition = Point.Empty;
+
+            ResetFormSettings();
 
             itemSummaryTextBox.Text = _z2rMapper.GetItemSummary();
             spellSummaryTextBox.Text = _z2rMapper.GetSpellSummary();
             spellCostsTextBox.Text = _z2rMapper.GetSpellCostsSummary();
             RedrawStatsSummary();
             RedrawPalaceRoutingSummary();
+        }
+
+        private Point CenterMapOnXY(TabPage pictureBoxContainer, Point xyLoc)
+        {
+            // We have been given the focal point for the unscaled bitmap.
+            // We need to scale by the zoom factor if we want the focal point to be
+            // centered for a map that is zoomed in or zoomed out.
+            xyLoc.X = (int)(xyLoc.X * _zoomFactor);
+            xyLoc.Y = (int)(xyLoc.Y * _zoomFactor);
+
+            Point newAutoScrollPosition = new Point()
+            {
+                X = xyLoc.X - (pictureBoxContainer.Width / 2),
+                Y = xyLoc.Y - (pictureBoxContainer.Height / 2),
+            };
+            return newAutoScrollPosition;
+        }
+
+        private void ResetFormSettings()
+        {
+            //mainTabControl.SelectedIndex = 0;
+            showMaxHeartContainersCheckBox.Checked = false;
+            showCombinedSpellCheckBox.Checked = false;
+            showMagicCostsCheckBox.Checked = false;
+            showDirectionsCheckBox.Checked = false;
+            showRequirementsCheckBox.Checked = true;
+            showItemToBossCheckBox.Checked = false;
         }
 
         private void RedrawStatsSummary()
@@ -92,11 +150,13 @@ namespace Z2R_Mapper
         {
             string[] args = Environment.GetCommandLineArgs();
 
-            // Allow auto-opening of a ROM file by simply dragging the file on top of the executable.
+            // Allow opening of a ROM file by dragging the file on top of the executable.
             if (args.Length > 1)
             {
                 OpenROMFile(args[1]);
             }
+
+            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
         }
 
         private void showMaxHeartContainersCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -266,6 +326,103 @@ namespace Z2R_Mapper
 
                 mazeIslandTabPage.Invalidate();
                 mazeIslandPictureBox.Invalidate();
+            }
+        }
+
+        private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TabControl tabControl = ((TabControl)sender);
+            System.Diagnostics.Debug.WriteLine("Tab changed to " + tabControl.SelectedIndex);
+
+            if(tabControl.SelectedIndex == 1 && _westernHyruleAutoScrollNeedsAdjustment)
+            {
+                westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
+                _westernHyruleAutoScrollNeedsAdjustment = false;
+            }
+
+            if(tabControl.SelectedIndex == 3 && _easternHyruleAutoScrollNeedsAdjustment)
+            {
+                easternHyruleTabPage.AutoScrollPosition = _easternHyruleMapAutoScrollPosition;
+                _easternHyruleAutoScrollNeedsAdjustment = false;
+            }
+        }
+
+        private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomOutMaps();
+        }
+
+        private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ZoomInMaps();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            switch(e.KeyCode)
+            {
+                case Keys.Add:
+                case Keys.Oemplus:
+                    ZoomInMaps();
+                    e.Handled = true;
+                    break;
+
+                case Keys.Subtract:
+                case Keys.OemMinus:
+                    ZoomOutMaps();
+                    e.Handled = true;
+                    break;
+
+                default:
+                    e.Handled = false;
+                    break;
+            }
+        }
+
+        private void ZoomOutMaps()
+        {
+            if (_zoomFactor > 0.25)
+            {
+                _zoomFactor -= 0.25;
+            }
+            ResizeMaps();
+        }
+
+        private void ZoomInMaps()
+        {
+            if (_zoomFactor < 1.5)
+            {
+                _zoomFactor += 0.25;
+            }
+            ResizeMaps();
+        }
+
+        private void ResizeMaps()
+        {
+            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
+            if(_westernHyruleImageBackup != null)
+            {
+                Size newSize = new Size((int)(_westernHyruleImageBackup.Width * _zoomFactor), (int)(_westernHyruleImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_westernHyruleImageBackup, newSize);
+                westernHyrulePictureBox.Image = bmp;
+            }
+            if (_easternHyruleImageBackup != null)
+            {
+                Size newSize = new Size((int)(_easternHyruleImageBackup.Width * _zoomFactor), (int)(_easternHyruleImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_easternHyruleImageBackup, newSize);
+                easternHyrulePictureBox.Image = bmp;
+            }
+            if (_deathMountainImageBackup != null)
+            {
+                Size newSize = new Size((int)(_deathMountainImageBackup.Width * _zoomFactor), (int)(_deathMountainImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_deathMountainImageBackup, newSize);
+                deathMountainPictureBox.Image = bmp;
+            }
+            if (_mazeIslandImageBackup != null)
+            {
+                Size newSize = new Size((int)(_mazeIslandImageBackup.Width * _zoomFactor), (int)(_mazeIslandImageBackup.Height * _zoomFactor));
+                Bitmap bmp = new Bitmap(_mazeIslandImageBackup, newSize);
+                mazeIslandPictureBox.Image = bmp;
             }
         }
     }

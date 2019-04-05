@@ -378,6 +378,10 @@ namespace Z2R_Mapper
 
         private readonly ItemLocationInfo[] _townLocationTable = new ItemLocationInfo[8];
 
+        private Point _northPalaceLocation = new Point();
+
+        private Point _easternHyruleRaftLocation = new Point();
+
         private RoutingSolution[][][] _allPalaceRoutingSolutions;
 
         public Z2R_Mapper(String romFileName)
@@ -408,6 +412,26 @@ namespace Z2R_Mapper
             Bitmap retVal = GetCroppedBitmap(overworldBitmap, overworldArea);
 
             return retVal;
+        }
+
+        public Point GetBitmapXYAtCenterOfNorthPalace()
+        {
+            Point bitmapXY = new Point()
+            {
+                X = (_northPalaceLocation.X * 32) + 16,
+                Y = (_northPalaceLocation.Y * 32) + 16,
+            };
+            return bitmapXY;
+        }
+
+        public Point GetBitmapXYAtCenterOfEasternHyruleRaftLocation()
+        {
+            Point bitmapXY = new Point()
+            {
+                X = (_easternHyruleRaftLocation.X * 32) + 16,
+                Y = (_easternHyruleRaftLocation.Y * 32) + 16,
+            };
+            return bitmapXY;
         }
 
         public string GetItemSummary()
@@ -738,11 +762,19 @@ namespace Z2R_Mapper
                 Point[] connectionLocations = _z2rReader.GetOverworldConnectionLocations(overworldArea);
                 for (int connectionID = 0; connectionID < 63; connectionID++)
                 {
+                    Bitmap image = Properties.Resources.Blank_Square;
+                    Point xyLoc = connectionLocations[connectionID];
                     ConnectionInfo connInfo;
+
                     switch(overworldArea)
                     {
                         case OverworldArea.WesternHyrule:
                             connInfo = WesternHyruleConnectionInfoTable[connectionID];
+                            if(connectionID == 0)
+                            {
+                                _northPalaceLocation.X = xyLoc.X;
+                                _northPalaceLocation.Y = xyLoc.Y;
+                            }
                             break;
                         case OverworldArea.DeathMountain:
                         case OverworldArea.MazeIsland:
@@ -758,13 +790,16 @@ namespace Z2R_Mapper
                             break;
                         case OverworldArea.EasternHyrule:
                             connInfo = EasternHyruleConnectionInfoTable[connectionID];
+                            if (connectionID == 41)
+                            {
+                                _easternHyruleRaftLocation.X = xyLoc.X;
+                                _easternHyruleRaftLocation.Y = xyLoc.Y;
+                            }
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();
                     }
 
-                    Bitmap image = Properties.Resources.Blank_Square;
-                    Point xyLoc = connectionLocations[connectionID];
                     switch (connInfo.drawingInstructions)
                     {
                         case ConnectionInfoDrawingInstructions.IgnoreThisConnection:
@@ -911,7 +946,8 @@ namespace Z2R_Mapper
                     {
                         routingSummary.AppendLine(string.Format("  {0}:", PalaceRouteTypeNames[(int)routeType]));
                         routingSolutionSet = _allPalaceRoutingSolutions[palaceIndex][(int)routeType];
-                        AddSolutionSetToRoutingSummary(ref routingSummary, routingSolutionSet, showDirections, showRequirements);
+                        bool extraRebonack = ((palaceIndex == 5) && (routeType == PalaceRouteType.EntranceToItem)) ? true : false;
+                        AddSolutionSetToRoutingSummary(ref routingSummary, routingSolutionSet, showDirections, showRequirements, extraRebonack);
                     }
                 }
                 routingSummary.AppendLine();
@@ -920,13 +956,13 @@ namespace Z2R_Mapper
             routingSummary.AppendLine("Great Palace:");
             routingSummary.AppendLine("  Entrance to Dark Link:");
             routingSolutionSet = _allPalaceRoutingSolutions[6][(int)PalaceRouteType.EntranceToBoss];
-            AddSolutionSetToRoutingSummary(ref routingSummary, routingSolutionSet, showDirections, showRequirements);
+            AddSolutionSetToRoutingSummary(ref routingSummary, routingSolutionSet, showDirections, showRequirements, false);
             routingSummary.AppendLine();
 
             return routingSummary.ToString();
         }
 
-        private void AddSolutionSetToRoutingSummary(ref StringBuilder routingSummary, RoutingSolution[] routingSolutionSet, bool showDirections, bool showRequirements)
+        private void AddSolutionSetToRoutingSummary(ref StringBuilder routingSummary, RoutingSolution[] routingSolutionSet, bool showDirections, bool showRequirements, bool extraRebonack)
         {
             if (routingSolutionSet.Length == 0)
             {
@@ -942,7 +978,7 @@ namespace Z2R_Mapper
                 }
                 if (showRequirements)
                 {
-                    AddRequirementsToRoutingSummary(ref routingSummary, routingSolutionSet[0]);
+                    AddRequirementsToRoutingSummary(ref routingSummary, routingSolutionSet[0], extraRebonack);
                 }
                 routingSummary.AppendLine();
             }
@@ -958,7 +994,7 @@ namespace Z2R_Mapper
                     }
                     if (showRequirements)
                     {
-                        AddRequirementsToRoutingSummary(ref routingSummary, routingSolutionSet[solutionIndex]);
+                        AddRequirementsToRoutingSummary(ref routingSummary, routingSolutionSet[solutionIndex], extraRebonack);
                     }
                     routingSummary.AppendLine();
                 }
@@ -980,7 +1016,7 @@ namespace Z2R_Mapper
             }
         }
 
-        private void AddRequirementsToRoutingSummary(ref StringBuilder routingSummary, RoutingSolution routingSolution)
+        private void AddRequirementsToRoutingSummary(ref StringBuilder routingSummary, RoutingSolution routingSolution, bool extraRebonack)
         {
             routingSummary.Append("(");
 
@@ -1006,11 +1042,17 @@ namespace Z2R_Mapper
                     }
                 }
 
-                for (int requirementNameIndex = 0; requirementFlags != 0; requirementNameIndex++)
+                // We don't bail out of the for loop as soon as requirementFlags==0 just in case we
+                // need to add the extra Rebonack requirement.
+                for (int requirementNameIndex = 0; requirementNameIndex < 8; requirementNameIndex++)
                 {
                     if ((requirementFlags & 0x01) > 0)
                     {
                         routingSummary.Append(RequirementNames[requirementNameIndex]);
+                        if ((requirementNameIndex == 6) && extraRebonack)
+                        {
+                            routingSummary.Append(" x 2");
+                        }
                         requirementFlags >>= 1;
                         if (requirementFlags > 0)
                         {
@@ -1019,6 +1061,19 @@ namespace Z2R_Mapper
                     }
                     else
                     {
+                        if ((requirementNameIndex == 6) && extraRebonack)
+                        {
+                            if(requirementFlags == 0)
+                            {
+                                // This comma wasn't appened yet, so we have to add it now.
+                                routingSummary.Append(", ");
+                            }
+                            routingSummary.Append(RequirementNames[requirementNameIndex]);
+                            if (requirementFlags > 0)
+                            {
+                                routingSummary.Append(", ");
+                            }
+                        }
                         requirementFlags >>= 1;
                     }
                 }
