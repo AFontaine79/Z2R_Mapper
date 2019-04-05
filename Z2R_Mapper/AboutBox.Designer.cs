@@ -35,9 +35,9 @@
             this.labelVersion = new System.Windows.Forms.Label();
             this.labelAuthor = new System.Windows.Forms.Label();
             this.wikiLinkLabel = new System.Windows.Forms.LinkLabel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.aboutPictureBox = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aboutPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // okButton
@@ -78,7 +78,7 @@
             this.tableLayoutPanel.Controls.Add(this.wikiLinkLabel, 1, 3);
             this.tableLayoutPanel.Controls.Add(this.okButton, 1, 5);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 0, 4);
-            this.tableLayoutPanel.Controls.Add(this.pictureBox1, 0, 0);
+            this.tableLayoutPanel.Controls.Add(this.aboutPictureBox, 0, 0);
             this.tableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel.Location = new System.Drawing.Point(12, 11);
             this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4);
@@ -130,17 +130,18 @@
             this.wikiLinkLabel.TabStop = true;
             this.wikiLinkLabel.Text = "Visit the wiki";
             // 
-            // pictureBox1
+            // aboutPictureBox
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::Z2R_Mapper.Properties.Resources.AboutPic;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.tableLayoutPanel.SetRowSpan(this.pictureBox1, 4);
-            this.pictureBox1.Size = new System.Drawing.Size(171, 114);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 29;
-            this.pictureBox1.TabStop = false;
+            this.aboutPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.aboutPictureBox.Image = global::Z2R_Mapper.Properties.Resources.AboutPic;
+            this.aboutPictureBox.InitialImage = null;
+            this.aboutPictureBox.Location = new System.Drawing.Point(3, 3);
+            this.aboutPictureBox.Name = "aboutPictureBox";
+            this.tableLayoutPanel.SetRowSpan(this.aboutPictureBox, 4);
+            this.aboutPictureBox.Size = new System.Drawing.Size(171, 114);
+            this.aboutPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.aboutPictureBox.TabIndex = 29;
+            this.aboutPictureBox.TabStop = false;
             // 
             // AboutBox
             // 
@@ -163,7 +164,7 @@
             this.Text = "Z2R Mapper About";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aboutPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -177,6 +178,6 @@
         private System.Windows.Forms.LinkLabel wikiLinkLabel;
         private System.Windows.Forms.Label labelVersion;
         private System.Windows.Forms.Label labelAuthor;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox aboutPictureBox;
     }
 }

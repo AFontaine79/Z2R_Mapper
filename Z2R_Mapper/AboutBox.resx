@@ -120,10 +120,8 @@
   <data name="textBoxDescription.Text" xml:space="preserve">
     <value>Compatible with Zelda 2 Ranomizer version 3.13.
 
-Acknowledgements to digshake for his work on the randomizer and CF207 for his work on z2edit.  Both are truly impressive.  Additional acknowledgements to fceux and nesdev.com.
+Acknowledgements to digshake for his work on the Randomizer and CF207 for his work on Z2Edit.  Both are truly impressive.  Additional acknowledgements to fceux and nesdev.com.
 
-z2edit and fceux have been instrumental in helping me understand Z2 ROM layout and data format.  z2edit was also used to verify the correctness of Z2R Mapper.
-
-Additional thanks to CF207 for answering questions.</value>
+This application was developed with considerable reliance on Z2Edit and fceux.  Mostly Z2Edit.</value>
   </data>
 </root>

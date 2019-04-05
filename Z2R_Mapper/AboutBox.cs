@@ -16,7 +16,10 @@ namespace Z2R_Mapper
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+
+            // Only show major and minor
+            string[] versionFields = AssemblyVersion.Split('.');
+            this.labelVersion.Text = String.Format("Version {0}.{1}", versionFields[0], versionFields[1]);
         }
 
         #region Assembly Attribute Accessors

@@ -290,9 +290,6 @@
     <None Include="Resources\NorthPalace.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\AboutPic.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\CaveF1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -323,6 +320,7 @@
     <None Include="Resources\CaveI.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\AboutPic.png" />
     <Content Include="xmarksthespot_triforce_Lxu_icon.ico" />
     <Content Include="Z2R_Mapper_Icon.ico" />
   </ItemGroup>
