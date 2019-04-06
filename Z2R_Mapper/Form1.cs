@@ -163,10 +163,56 @@ namespace Z2R_Mapper
                     e.Handled = true;
                     break;
 
+                case Keys.Left:
+                case Keys.NumPad4:
+                    PanSelectedMap(-50, 0);
+                    e.Handled = true;
+                    break;
+
+                case Keys.Right:
+                case Keys.NumPad6:
+                    PanSelectedMap(50, 0);
+                    e.Handled = true;
+                    break;
+
+                case Keys.Up:
+                case Keys.NumPad8:
+                    PanSelectedMap(0, -50);
+                    e.Handled = true;
+                    break;
+
+                case Keys.Down:
+                case Keys.NumPad2:
+                    PanSelectedMap(0, 50);
+                    e.Handled = true;
+                    break;
+
                 default:
                     e.Handled = false;
                     break;
             }
+        }
+
+        private void PanSelectedMap(int deltaX, int deltaY)
+        {
+            TabPage tabPage;
+
+            tabPage = mainTabControl.SelectedTab;
+            if ((tabPage != westernHyruleTabPage) && (tabPage != easternHyruleTabPage) &&
+                (tabPage != deathMountainTabPage) && (tabPage != mazeIslandTabPage))
+            {
+                return;
+            }
+
+            Point scrollPosition = tabPage.AutoScrollPosition;
+
+            // AutoScrollPosition gives us negative offsets, but we are required to feed it positive offsets.
+            scrollPosition.X = -scrollPosition.X;
+            scrollPosition.Y = -scrollPosition.Y;
+
+            scrollPosition.X += deltaX;
+            scrollPosition.Y += deltaY;
+            tabPage.AutoScrollPosition = scrollPosition;
         }
 
         private void ZoomOutMaps()
@@ -413,14 +459,13 @@ namespace Z2R_Mapper
         {
             TabControl tabControl = ((TabControl)sender);
 
-            // TODO: Should I be using tabControl.SelectedTab here?
-            if(tabControl.SelectedIndex == 1 && _westernHyruleAutoScrollNeedsAdjustment)
+            if(tabControl.SelectedTab == westernHyruleTabPage && _westernHyruleAutoScrollNeedsAdjustment)
             {
                 westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
                 _westernHyruleAutoScrollNeedsAdjustment = false;
             }
 
-            if(tabControl.SelectedIndex == 3 && _easternHyruleAutoScrollNeedsAdjustment)
+            if(tabControl.SelectedTab == easternHyruleTabPage && _easternHyruleAutoScrollNeedsAdjustment)
             {
                 easternHyruleTabPage.AutoScrollPosition = _easternHyruleMapAutoScrollPosition;
                 _easternHyruleAutoScrollNeedsAdjustment = false;
