@@ -389,7 +389,7 @@ namespace Z2R_Mapper.Palace_Routing
                     new RoomExit { isValid = true, indexOfNextRoom = 44, impassibilityFlags = new bool[] { true, false, false, false } },
                     new RoomExit { isValid = false },
                     new RoomExit { isValid = true, indexOfNextRoom = 48, impassibilityFlags = new bool[] { false, true, true, true },
-                        passThroughFlags = new UInt16[] { 0x12, 0x00, 0x00, 0x00 } },
+                        passThroughFlags = new UInt16[] { 0x02, 0x00, 0x00, 0x00 } },
                     new RoomExit { isValid = true, indexOfNextRoom = 46, impassibilityFlags = new bool[] { false, true, true, true } },
                 }
                 },

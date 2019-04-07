@@ -129,6 +129,7 @@
             this.wikiLinkLabel.TabIndex = 26;
             this.wikiLinkLabel.TabStop = true;
             this.wikiLinkLabel.Text = "Visit the wiki";
+            this.wikiLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.wikiLinkLabel_LinkClicked);
             // 
             // aboutPictureBox
             // 

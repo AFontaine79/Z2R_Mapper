@@ -145,7 +145,8 @@
             // 
             this.zoomFactorTextBox.Name = "zoomFactorTextBox";
             this.zoomFactorTextBox.ReadOnly = true;
-            this.zoomFactorTextBox.Size = new System.Drawing.Size(100, 27);
+            this.zoomFactorTextBox.Size = new System.Drawing.Size(140, 27);
+            this.zoomFactorTextBox.Text = "Zoom Factor: 1.00";
             // 
             // mainTabControl
             // 

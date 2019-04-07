@@ -106,5 +106,10 @@ namespace Z2R_Mapper
         {
             ((Button)sender).DialogResult = DialogResult.OK;
         }
+
+        private void wikiLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/AFontaine79/Z2R_Mapper_Docs/wiki/Zelda-2-Randomizer-Mapper");
+        }
     }
 }

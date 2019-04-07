@@ -70,7 +70,7 @@ namespace Z2R_Mapper
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
+            zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", _zoomFactor.ToString("0.00"));
 
             // Allow opening of a ROM file by dragging the file on top of the executable or its shortcut.
             string[] args = Environment.GetCommandLineArgs();
@@ -235,7 +235,7 @@ namespace Z2R_Mapper
 
         private void ResizeMaps()
         {
-            zoomFactorTextBox.Text = _zoomFactor.ToString("0.00");
+            zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", _zoomFactor.ToString("0.00"));
             if (_westernHyruleImageBackup != null)
             {
                 Size newSize = new Size((int)(_westernHyruleImageBackup.Width * _zoomFactor), (int)(_westernHyruleImageBackup.Height * _zoomFactor));
