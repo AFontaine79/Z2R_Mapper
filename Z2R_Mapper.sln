@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.489
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Z2R_Mapper", "Z2R_Mapper\Z2R_Mapper.csproj", "{501202DB-D1BD-4348-AA27-C896C480DDCD}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Z2R_Mapper_Installer", "Z2R_Mapper_Installer\Z2R_Mapper_Installer.vdproj", "{6FE7C85F-F03B-4EC7-8DFD-CD5CAE465070}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{501202DB-D1BD-4348-AA27-C896C480DDCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{501202DB-D1BD-4348-AA27-C896C480DDCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{501202DB-D1BD-4348-AA27-C896C480DDCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FE7C85F-F03B-4EC7-8DFD-CD5CAE465070}.Debug|Any CPU.ActiveCfg = Debug
+		{6FE7C85F-F03B-4EC7-8DFD-CD5CAE465070}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
