@@ -447,6 +447,12 @@ namespace Z2R_Mapper
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0, ItemTypeIfNoLookup = CollectibleItem.RedJar },
         };
 
+        private readonly AbsoluteROMAddress NewKasutoJarRequirementAddress = new AbsoluteROMAddress
+        {
+            RomBankNumber = 7,
+            CPUAddress = 0xE7D8,
+        };
+
         private readonly AbsoluteROMAddress[] ItemLookupTableForNewKasuto =
         {
             new AbsoluteROMAddress { RomBankNumber = 3, CPUAddress = 0x9B7C },
@@ -885,6 +891,11 @@ namespace Z2R_Mapper
 
             // This connection does not enter a palace
             return -1;
+        }
+
+        public int GetNewKasutoJarRequirement()
+        {
+            return (int)GetByteAtAbsoluteROMAddress(NewKasutoJarRequirementAddress);
         }
 
         public CollectibleItem GetNewKasutoItem(NewKasutoItemArea itemArea)

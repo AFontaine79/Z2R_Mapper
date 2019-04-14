@@ -511,11 +511,22 @@ namespace Z2R_Mapper
         {
             foreach (NewKasutoItemArea itemArea in (NewKasutoItemArea[])Enum.GetValues(typeof(NewKasutoItemArea)))
             {
-                _itemLocationTable[4, (int)itemArea] = new ItemLocationInfo
+                if(itemArea == NewKasutoItemArea.MagicContainerBasement)
                 {
-                    locationName = NewKasutoItemAreaNames[(int)itemArea],
-                    item = _z2rReader.GetNewKasutoItem(itemArea),
-                };
+                    _itemLocationTable[4, (int)itemArea] = new ItemLocationInfo
+                    {
+                        locationName = string.Format("{0} ({1} jars required)", NewKasutoItemAreaNames[(int)itemArea],
+                            _z2rReader.GetNewKasutoJarRequirement()),
+                        item = _z2rReader.GetNewKasutoItem(itemArea),
+                    };
+                } else
+                {
+                    _itemLocationTable[4, (int)itemArea] = new ItemLocationInfo
+                    {
+                        locationName = NewKasutoItemAreaNames[(int)itemArea],
+                        item = _z2rReader.GetNewKasutoItem(itemArea),
+                    };
+                }
             }
         }
 
