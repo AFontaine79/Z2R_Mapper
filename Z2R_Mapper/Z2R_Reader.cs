@@ -481,6 +481,12 @@ namespace Z2R_Mapper
             CPUAddress = 0x8DBB,
         };
 
+        private readonly AbsoluteROMAddress LifeRefillAmountAddress = new AbsoluteROMAddress
+        {
+            RomBankNumber = 0,
+            CPUAddress = 0x8E6A,
+        };
+
         private readonly AbsoluteROMAddress AttackStrengthTableBase = new AbsoluteROMAddress
         {
             RomBankNumber = 7,
@@ -959,6 +965,12 @@ namespace Z2R_Mapper
                 romAddress.CPUAddress++;
             }
             return Spell.Invalid;
+        }
+
+        public int GetNumBarsRefilledByLifeSpell()
+        {
+            int rawRefillAmount = (int)GetByteAtAbsoluteROMAddress(LifeRefillAmountAddress);
+            return (rawRefillAmount / 16);  // Refill amount is also randomized to a number of whole life bars
         }
 
         public bool CheckIsConnectionHidden(OverworldArea overworldArea, int connectionID)

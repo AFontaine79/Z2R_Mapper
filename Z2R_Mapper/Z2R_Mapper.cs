@@ -595,7 +595,19 @@ namespace Z2R_Mapper
                 _townLocationTable[(int)town].isHidden);
             spellSummary.Append("): ");
             spellSummary.Append(SpellNames[(int)spell]);
-            if(spell == Spell.Fire)
+            if (spell == Spell.Life)
+            {
+                int numBarsRefilled = _z2rReader.GetNumBarsRefilledByLifeSpell();
+                if(numBarsRefilled == 1)
+                {
+                    spellSummary.Append(" (refills 1 bar)");
+                }
+                else
+                {
+                    spellSummary.Append(string.Format(" (refills {0} bars)", numBarsRefilled));
+                }
+            }
+            if (spell == Spell.Fire)
             {
                 Spell combinedSpell = _z2rReader.GetSpellCombinedWithFire();
                 if(combinedSpell != Spell.Invalid)
