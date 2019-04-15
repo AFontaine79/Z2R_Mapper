@@ -72,12 +72,54 @@ namespace Z2R_Mapper
         {
             zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", _zoomFactor.ToString("0.00"));
 
+            startingStatsTextBox.MouseWheel += StartingStatsTextBox_MouseWheel;
+            itemSummaryTextBox.MouseWheel += ItemSummaryTextBox_MouseWheel;
+            spellSummaryTextBox.MouseWheel += SpellSummaryTextBox_MouseWheel;
+            spellCostsTextBox.MouseWheel += SpellSummaryTextBox_MouseWheel;
+            palaceRoutingTextBox.MouseWheel += PalaceRoutingTextBox_MouseWheel;
+
             // Allow opening of a ROM file by dragging the file on top of the executable or its shortcut.
             string[] args = Environment.GetCommandLineArgs();
             if (args.Length > 1)
             {
                 OpenROMFile(args[1]);
             }
+        }
+
+        private void StartingStatsTextBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            Point newScrollPosition = startingStatsPanel.AutoScrollPosition;
+            newScrollPosition.X = -newScrollPosition.X;
+            newScrollPosition.Y = -newScrollPosition.Y;
+            newScrollPosition.Y -= e.Delta;
+            startingStatsPanel.AutoScrollPosition = newScrollPosition;
+        }
+
+        private void ItemSummaryTextBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            Point newScrollPosition = itemSummaryTabPage.AutoScrollPosition;
+            newScrollPosition.X = -newScrollPosition.X;
+            newScrollPosition.Y = -newScrollPosition.Y;
+            newScrollPosition.Y -= e.Delta;
+            itemSummaryTabPage.AutoScrollPosition = newScrollPosition;
+        }
+
+        private void SpellSummaryTextBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            Point newScrollPosition = spellSummaryPanel.AutoScrollPosition;
+            newScrollPosition.X = -newScrollPosition.X;
+            newScrollPosition.Y = -newScrollPosition.Y;
+            newScrollPosition.Y -= e.Delta;
+            spellSummaryPanel.AutoScrollPosition = newScrollPosition;
+        }
+
+        private void PalaceRoutingTextBox_MouseWheel(object sender, MouseEventArgs e)
+        {
+            Point newScrollPosition = palaceRoutingPanel.AutoScrollPosition;
+            newScrollPosition.X = -newScrollPosition.X;
+            newScrollPosition.Y = -newScrollPosition.Y;
+            newScrollPosition.Y -= e.Delta;
+            palaceRoutingPanel.AutoScrollPosition = newScrollPosition;
         }
 
         private void OpenROMFile(String filename)

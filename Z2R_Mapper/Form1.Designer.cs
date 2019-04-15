@@ -38,7 +38,7 @@
             this.zoomFactorTextBox = new System.Windows.Forms.ToolStripTextBox();
             this.mainTabControl = new System.Windows.Forms.TabControl();
             this.startingStatsTabPage = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.startingStatsPanel = new System.Windows.Forms.Panel();
             this.startingStatsTextBox = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.showCombinedSpellCheckBox = new System.Windows.Forms.CheckBox();
@@ -54,13 +54,13 @@
             this.itemSummaryTabPage = new System.Windows.Forms.TabPage();
             this.itemSummaryTextBox = new System.Windows.Forms.TextBox();
             this.spellSummaryTabPage = new System.Windows.Forms.TabPage();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.spellSummaryPanel = new System.Windows.Forms.Panel();
             this.spellSummaryTextBox = new System.Windows.Forms.TextBox();
             this.spellCostsTextBox = new System.Windows.Forms.TextBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.showMagicCostsCheckBox = new System.Windows.Forms.CheckBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.palaceRoutingPanel = new System.Windows.Forms.Panel();
             this.palaceRoutingTextBox = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
@@ -69,7 +69,7 @@
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.startingStatsPanel.SuspendLayout();
             this.panel1.SuspendLayout();
             this.westernHyruleTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.westernHyrulePictureBox)).BeginInit();
@@ -81,10 +81,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.mazeIslandPictureBox)).BeginInit();
             this.itemSummaryTabPage.SuspendLayout();
             this.spellSummaryTabPage.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.spellSummaryPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel6.SuspendLayout();
+            this.palaceRoutingPanel.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -172,7 +172,7 @@
             // startingStatsTabPage
             // 
             this.startingStatsTabPage.BackColor = System.Drawing.SystemColors.Control;
-            this.startingStatsTabPage.Controls.Add(this.panel2);
+            this.startingStatsTabPage.Controls.Add(this.startingStatsPanel);
             this.startingStatsTabPage.Controls.Add(this.panel1);
             this.startingStatsTabPage.Location = new System.Drawing.Point(4, 25);
             this.startingStatsTabPage.Name = "startingStatsTabPage";
@@ -181,19 +181,19 @@
             this.startingStatsTabPage.TabIndex = 6;
             this.startingStatsTabPage.Text = "Starting Stats";
             // 
-            // panel2
+            // startingStatsPanel
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.startingStatsPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.AutoScroll = true;
-            this.panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel2.Controls.Add(this.startingStatsTextBox);
-            this.panel2.Location = new System.Drawing.Point(6, 6);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(854, 493);
-            this.panel2.TabIndex = 0;
+            this.startingStatsPanel.AutoScroll = true;
+            this.startingStatsPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.startingStatsPanel.Controls.Add(this.startingStatsTextBox);
+            this.startingStatsPanel.Location = new System.Drawing.Point(6, 6);
+            this.startingStatsPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.startingStatsPanel.Name = "startingStatsPanel";
+            this.startingStatsPanel.Size = new System.Drawing.Size(854, 493);
+            this.startingStatsPanel.TabIndex = 0;
             // 
             // startingStatsTextBox
             // 
@@ -371,7 +371,7 @@
             // 
             this.spellSummaryTabPage.AutoScroll = true;
             this.spellSummaryTabPage.BackColor = System.Drawing.SystemColors.Control;
-            this.spellSummaryTabPage.Controls.Add(this.panel4);
+            this.spellSummaryTabPage.Controls.Add(this.spellSummaryPanel);
             this.spellSummaryTabPage.Controls.Add(this.panel3);
             this.spellSummaryTabPage.Location = new System.Drawing.Point(4, 25);
             this.spellSummaryTabPage.Name = "spellSummaryTabPage";
@@ -380,20 +380,20 @@
             this.spellSummaryTabPage.TabIndex = 5;
             this.spellSummaryTabPage.Text = "Spell Summary";
             // 
-            // panel4
+            // spellSummaryPanel
             // 
-            this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.spellSummaryPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel4.AutoScroll = true;
-            this.panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel4.Controls.Add(this.spellSummaryTextBox);
-            this.panel4.Controls.Add(this.spellCostsTextBox);
-            this.panel4.Location = new System.Drawing.Point(8, 7);
-            this.panel4.Margin = new System.Windows.Forms.Padding(0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(852, 492);
-            this.panel4.TabIndex = 0;
+            this.spellSummaryPanel.AutoScroll = true;
+            this.spellSummaryPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.spellSummaryPanel.Controls.Add(this.spellSummaryTextBox);
+            this.spellSummaryPanel.Controls.Add(this.spellCostsTextBox);
+            this.spellSummaryPanel.Location = new System.Drawing.Point(8, 7);
+            this.spellSummaryPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.spellSummaryPanel.Name = "spellSummaryPanel";
+            this.spellSummaryPanel.Size = new System.Drawing.Size(852, 492);
+            this.spellSummaryPanel.TabIndex = 0;
             // 
             // spellSummaryTextBox
             // 
@@ -445,7 +445,7 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-            this.tabPage1.Controls.Add(this.panel6);
+            this.tabPage1.Controls.Add(this.palaceRoutingPanel);
             this.tabPage1.Controls.Add(this.panel5);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
@@ -454,19 +454,19 @@
             this.tabPage1.TabIndex = 7;
             this.tabPage1.Text = "Palace Routing";
             // 
-            // panel6
+            // palaceRoutingPanel
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.palaceRoutingPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel6.AutoScroll = true;
-            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.panel6.Controls.Add(this.palaceRoutingTextBox);
-            this.panel6.Location = new System.Drawing.Point(6, 6);
-            this.panel6.Margin = new System.Windows.Forms.Padding(0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(854, 492);
-            this.panel6.TabIndex = 0;
+            this.palaceRoutingPanel.AutoScroll = true;
+            this.palaceRoutingPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.palaceRoutingPanel.Controls.Add(this.palaceRoutingTextBox);
+            this.palaceRoutingPanel.Location = new System.Drawing.Point(6, 6);
+            this.palaceRoutingPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.palaceRoutingPanel.Name = "palaceRoutingPanel";
+            this.palaceRoutingPanel.Size = new System.Drawing.Size(854, 492);
+            this.palaceRoutingPanel.TabIndex = 0;
             // 
             // palaceRoutingTextBox
             // 
@@ -552,8 +552,8 @@
             this.menuStrip1.PerformLayout();
             this.mainTabControl.ResumeLayout(false);
             this.startingStatsTabPage.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.startingStatsPanel.ResumeLayout(false);
+            this.startingStatsPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.westernHyruleTabPage.ResumeLayout(false);
@@ -571,13 +571,13 @@
             this.itemSummaryTabPage.ResumeLayout(false);
             this.itemSummaryTabPage.PerformLayout();
             this.spellSummaryTabPage.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.spellSummaryPanel.ResumeLayout(false);
+            this.spellSummaryPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
+            this.palaceRoutingPanel.ResumeLayout(false);
+            this.palaceRoutingPanel.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -606,18 +606,18 @@
         private System.Windows.Forms.TabPage startingStatsTabPage;
         private System.Windows.Forms.CheckBox showCombinedSpellCheckBox;
         private System.Windows.Forms.CheckBox showMaxHeartContainersCheckBox;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel startingStatsPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox startingStatsTextBox;
         private System.Windows.Forms.TextBox spellCostsTextBox;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel spellSummaryPanel;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.CheckBox showMagicCostsCheckBox;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.CheckBox showItemToBossCheckBox;
         private System.Windows.Forms.CheckBox showDirectionsCheckBox;
-        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Panel palaceRoutingPanel;
         private System.Windows.Forms.TextBox palaceRoutingTextBox;
         private System.Windows.Forms.CheckBox showRequirementsCheckBox;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;

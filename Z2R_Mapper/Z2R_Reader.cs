@@ -970,7 +970,7 @@ namespace Z2R_Mapper
         public int GetNumBarsRefilledByLifeSpell()
         {
             int rawRefillAmount = (int)GetByteAtAbsoluteROMAddress(LifeRefillAmountAddress);
-            return (rawRefillAmount / 16);  // Refill amount is also randomized to a number of whole life bars
+            return (rawRefillAmount / 16);  // Refill amount is randomized to a whole number of life bars
         }
 
         public bool CheckIsConnectionHidden(OverworldArea overworldArea, int connectionID)
