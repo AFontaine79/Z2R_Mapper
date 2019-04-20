@@ -41,6 +41,7 @@ namespace Z2R_Mapper
         private void OpenZeldaIIROMFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
+
             {
                 //openFileDialog.InitialDirectory = "c:\\";
                 openFileDialog.Filter = "iNES ROM files (*.nes)|*.nes";
@@ -548,6 +549,11 @@ namespace Z2R_Mapper
         {
             AboutBox aboutBox = new AboutBox();
             aboutBox.ShowDialog();
+        }
+
+        private void quitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

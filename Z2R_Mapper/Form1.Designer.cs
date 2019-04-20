@@ -66,6 +66,7 @@
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
             this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
             this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
@@ -107,7 +108,8 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openZeldaIIROMFileToolStripMenuItem});
+            this.openZeldaIIROMFileToolStripMenuItem,
+            this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 27);
             this.fileToolStripMenuItem.Text = "File";
@@ -526,6 +528,14 @@
             this.showDirectionsCheckBox.UseVisualStyleBackColor = true;
             this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.showDirectionsCheckBox_CheckedChanged);
             // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -621,6 +631,7 @@
         private System.Windows.Forms.ToolStripMenuItem zoomInToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem zoomOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox zoomFactorTextBox;
+        private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
     }
 }
 
