@@ -16,12 +16,6 @@ namespace Z2R_Mapper
         private Z2R_Mapper _z2rMapper;
         private bool _romLoaded = false;
 
-        private double _zoomFactor = 1.0;
-        private Bitmap _westernHyruleImageBackup;
-        private Bitmap _easternHyruleImageBackup;
-        private Bitmap _deathMountainImageBackup;
-        private Bitmap _mazeIslandImageBackup;
-
         private bool _westernHyruleAutoScrollNeedsAdjustment = false;
         private Point _westernHyruleMapAutoScrollPosition;
 
@@ -32,9 +26,16 @@ namespace Z2R_Mapper
         private Point _autoScrollStartPosition = Point.Empty;
         private Point _mouseStartingLocation = Point.Empty;
 
+        private bool _ctrlKeyHeld = false;
+
         public Form1()
         {
             InitializeComponent();
+
+            westernHyruleTabPage.Tag = 1.0;
+            deathMountainTabPage.Tag = 1.0;
+            easternHyruleTabPage.Tag = 1.0;
+            mazeIslandTabPage.Tag = 1.0;
         }
 
         private void OpenZeldaIIROMFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -70,13 +71,18 @@ namespace Z2R_Mapper
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", _zoomFactor.ToString("0.00"));
+            DisableZoomControls();
 
             startingStatsTextBox.MouseWheel += StartingStatsTextBox_MouseWheel;
             itemSummaryTextBox.MouseWheel += ItemSummaryTextBox_MouseWheel;
             spellSummaryTextBox.MouseWheel += SpellSummaryTextBox_MouseWheel;
             spellCostsTextBox.MouseWheel += SpellSummaryTextBox_MouseWheel;
             palaceRoutingTextBox.MouseWheel += PalaceRoutingTextBox_MouseWheel;
+
+            westernHyruleTabPage.MouseWheel += MapPage_MouseWheel;
+            deathMountainTabPage.MouseWheel += MapPage_MouseWheel;
+            easternHyruleTabPage.MouseWheel += MapPage_MouseWheel;
+            mazeIslandTabPage.MouseWheel += MapPage_MouseWheel;
 
             // Allow opening of a ROM file by dragging the file on top of the executable or its shortcut.
             string[] args = Environment.GetCommandLineArgs();
@@ -139,15 +145,18 @@ namespace Z2R_Mapper
 
         private void LoadDataIntoForms()
         {
-            _westernHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.WesternHyrule);
-            _easternHyruleImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
-            _deathMountainImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
-            _mazeIslandImageBackup = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
+            westernHyrulePictureBox.Tag = _z2rMapper.GetOverworldBitmap(OverworldArea.WesternHyrule);
+            easternHyrulePictureBox.Tag = _z2rMapper.GetOverworldBitmap(OverworldArea.EasternHyrule);
+            deathMountainPictureBox.Tag = _z2rMapper.GetOverworldBitmap(OverworldArea.DeathMountain);
+            mazeIslandPictureBox.Tag = _z2rMapper.GetOverworldBitmap(OverworldArea.MazeIsland);
 
             _romLoaded = true;
 
             // This function creates the scaled bitmaps and attaches them to the PictureBoxes.
-            ResizeMaps();
+            ResizeMap(westernHyruleTabPage, westernHyrulePictureBox);
+            ResizeMap(deathMountainTabPage, deathMountainPictureBox);
+            ResizeMap(easternHyruleTabPage, easternHyrulePictureBox);
+            ResizeMap(mazeIslandTabPage, mazeIslandPictureBox);
 
             _westernHyruleMapAutoScrollPosition = CenterMapOnXY(westernHyruleTabPage, _z2rMapper.GetBitmapXYAtCenterOfNorthPalace());
             westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
@@ -181,12 +190,12 @@ namespace Z2R_Mapper
 
         private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZoomOutMaps();
+            ZoomOutMap();
         }
 
         private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZoomInMaps();
+            ZoomInMap();
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -195,13 +204,13 @@ namespace Z2R_Mapper
             {
                 case Keys.Add:
                 case Keys.Oemplus:
-                    ZoomInMaps();
+                    ZoomInMap();
                     e.Handled = true;
                     break;
 
                 case Keys.Subtract:
                 case Keys.OemMinus:
-                    ZoomOutMaps();
+                    ZoomOutMap();
                     e.Handled = true;
                     break;
 
@@ -229,9 +238,45 @@ namespace Z2R_Mapper
                     e.Handled = true;
                     break;
 
+                case Keys.ControlKey:
+                    _ctrlKeyHeld = true;
+                    e.Handled = false;
+                    break;
+
                 default:
                     e.Handled = false;
                     break;
+            }
+        }
+
+        private void Form1_KeyUp(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.ControlKey:
+                    _ctrlKeyHeld = false;
+                    e.Handled = false;
+                    break;
+
+                default:
+                    e.Handled = false;
+                    break;
+            }
+        }
+
+        private void MapPage_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if(_ctrlKeyHeld)
+            {
+                if(e.Delta < 0)
+                {
+                    ZoomOutMap();
+                }
+                else
+                {
+                    ZoomInMap();
+                }
+                ((HandledMouseEventArgs)e).Handled = true;
             }
         }
 
@@ -257,51 +302,43 @@ namespace Z2R_Mapper
             tabPage.AutoScrollPosition = scrollPosition;
         }
 
-        private void ZoomOutMaps()
+        private void ZoomOutMap()
         {
-            if (_zoomFactor > 0.25)
+            TabPage selectedMapTabPage = mainTabControl.SelectedTab;
+            PictureBox selectedMapPictureBox = (PictureBox)selectedMapTabPage.GetChildAtPoint(new Point(10, 10));
+            double zoomFactor = (double)selectedMapTabPage.Tag;
+            if (zoomFactor > 0.25)
             {
-                _zoomFactor -= 0.25;
+                zoomFactor -= 0.25;
+                selectedMapTabPage.Tag = zoomFactor;
             }
-            ResizeMaps();
+            ResizeMap(selectedMapTabPage, selectedMapPictureBox);
         }
 
-        private void ZoomInMaps()
+        private void ZoomInMap()
         {
-            if (_zoomFactor < 1.5)
+            TabPage selectedMapTabPage = mainTabControl.SelectedTab;
+            PictureBox selectedMapPictureBox = (PictureBox)selectedMapTabPage.GetChildAtPoint(new Point(10, 10));
+            double zoomFactor = (double)selectedMapTabPage.Tag;
+            if (zoomFactor < 1.5)
             {
-                _zoomFactor += 0.25;
+                zoomFactor += 0.25;
+                selectedMapTabPage.Tag = zoomFactor;
             }
-            ResizeMaps();
+            ResizeMap(selectedMapTabPage, selectedMapPictureBox);
         }
 
-        private void ResizeMaps()
+        private void ResizeMap(TabPage selectedMapTabPage, PictureBox selectedMapPictureBox)
         {
-            zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", _zoomFactor.ToString("0.00"));
-            if (_westernHyruleImageBackup != null)
+            Bitmap unscaledImage = (Bitmap)selectedMapPictureBox.Tag;
+            double zoomFactor = (double)selectedMapTabPage.Tag;
+            if(unscaledImage != null)
             {
-                Size newSize = new Size((int)(_westernHyruleImageBackup.Width * _zoomFactor), (int)(_westernHyruleImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_westernHyruleImageBackup, newSize);
-                westernHyrulePictureBox.Image = bmp;
+                Size newSize = new Size((int)(unscaledImage.Width * zoomFactor), (int)(unscaledImage.Height * zoomFactor));
+                Bitmap bmp = new Bitmap(unscaledImage, newSize);
+                selectedMapPictureBox.Image = bmp;
             }
-            if (_easternHyruleImageBackup != null)
-            {
-                Size newSize = new Size((int)(_easternHyruleImageBackup.Width * _zoomFactor), (int)(_easternHyruleImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_easternHyruleImageBackup, newSize);
-                easternHyrulePictureBox.Image = bmp;
-            }
-            if (_deathMountainImageBackup != null)
-            {
-                Size newSize = new Size((int)(_deathMountainImageBackup.Width * _zoomFactor), (int)(_deathMountainImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_deathMountainImageBackup, newSize);
-                deathMountainPictureBox.Image = bmp;
-            }
-            if (_mazeIslandImageBackup != null)
-            {
-                Size newSize = new Size((int)(_mazeIslandImageBackup.Width * _zoomFactor), (int)(_mazeIslandImageBackup.Height * _zoomFactor));
-                Bitmap bmp = new Bitmap(_mazeIslandImageBackup, newSize);
-                mazeIslandPictureBox.Image = bmp;
-            }
+            EnableZoomControlsAndShowZoomFactor(zoomFactor);
         }
 
         private Point CenterMapOnXY(TabPage pictureBoxContainer, Point xyLoc)
@@ -309,8 +346,9 @@ namespace Z2R_Mapper
             // We have been given the focal point for the unscaled bitmap.
             // We need to scale by the zoom factor if we want the focal point to be
             // centered for a map that is zoomed in or zoomed out.
-            xyLoc.X = (int)(xyLoc.X * _zoomFactor);
-            xyLoc.Y = (int)(xyLoc.Y * _zoomFactor);
+            double zoomFactor = (double)pictureBoxContainer.Tag;
+            xyLoc.X = (int)(xyLoc.X * zoomFactor);
+            xyLoc.Y = (int)(xyLoc.Y * zoomFactor);
 
             Point newAutoScrollPosition = new Point()
             {
@@ -318,6 +356,22 @@ namespace Z2R_Mapper
                 Y = xyLoc.Y - (pictureBoxContainer.Height / 2),
             };
             return newAutoScrollPosition;
+        }
+
+        private void EnableZoomControlsAndShowZoomFactor(double zoomFactor)
+        {
+            zoomInToolStripMenuItem.Enabled = true;
+            zoomOutToolStripMenuItem.Enabled = true;
+            zoomFactorTextBox.Enabled = true;
+            zoomFactorTextBox.Text = string.Format("Zoom Factor: {0}", zoomFactor.ToString("0.00"));
+        }
+
+        private void DisableZoomControls()
+        {
+            zoomInToolStripMenuItem.Enabled = false;
+            zoomOutToolStripMenuItem.Enabled = false;
+            zoomFactorTextBox.Enabled = false;
+            zoomFactorTextBox.Text = string.Format("");
         }
 
         private void ResetFormSettings()
@@ -387,130 +441,68 @@ namespace Z2R_Mapper
             RedrawPalaceRoutingSummary();
         }
 
-        private void westernHyruleTabPage_MouseDown(object sender, MouseEventArgs e)
+        private void mapImagePictureBox_MouseDown(object sender, MouseEventArgs e)
         {
+            TabPage selectedTabPage = (TabPage)((PictureBox)sender).Parent;
             _panning = true;
-            _autoScrollStartPosition = westernHyruleTabPage.AutoScrollPosition;
-            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
-            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
-            _mouseStartingLocation = e.Location;
-        }
-        private void westernHyruleTabPage_MouseUp(object sender, MouseEventArgs e)
-        {
-            _panning = false;
-        }
-        private void westernHyruleTabPage_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_panning)
-            {
-                Point newAutoScrollPosition = new Point();
-                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
-                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
-                westernHyruleTabPage.AutoScrollPosition = newAutoScrollPosition;
-
-                westernHyruleTabPage.Invalidate();
-                westernHyrulePictureBox.Invalidate();
-            }
-        }
-
-        private void deathMountainTabPage_MouseDown(object sender, MouseEventArgs e)
-        {
-            _panning = true;
-            _autoScrollStartPosition = deathMountainTabPage.AutoScrollPosition;
+            _autoScrollStartPosition = selectedTabPage.AutoScrollPosition;
             _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
             _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
             _mouseStartingLocation = e.Location;
         }
 
-        private void deathMountainTabPage_MouseUp(object sender, MouseEventArgs e)
+        private void mapImagePictureBox_MouseUp(object sender, MouseEventArgs e)
         {
             _panning = false;
         }
 
-        private void deathMountainTabPage_MouseMove(object sender, MouseEventArgs e)
+        private void mapImagePictureBox_MouseMove(object sender, MouseEventArgs e)
         {
             if (_panning)
             {
+                PictureBox selectedPictureBox = (PictureBox)sender;
+                TabPage selectedTabPage = (TabPage)((PictureBox)sender).Parent;
                 Point newAutoScrollPosition = new Point();
                 newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
                 newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
-                deathMountainTabPage.AutoScrollPosition = newAutoScrollPosition;
+                selectedTabPage.AutoScrollPosition = newAutoScrollPosition;
 
-                deathMountainTabPage.Invalidate();
-                deathMountainPictureBox.Invalidate();
-            }
-        }
+                // When clicking and dragging on the PictureBox, the mouse stays in the same location
+                // on the PictureBox (after adjusting the scroll postion that is).
+                // That means we need to reset our scroll starting position so as to not have the
+                // image jumping around all herky-jerkily.
+                _autoScrollStartPosition = selectedTabPage.AutoScrollPosition;
+                _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
+                _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
 
-        private void easternHyruleTabPage_MouseDown(object sender, MouseEventArgs e)
-        {
-            _panning = true;
-            _autoScrollStartPosition = easternHyruleTabPage.AutoScrollPosition;
-            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
-            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
-            _mouseStartingLocation = e.Location;
-        }
-
-        private void easternHyruleTabPage_MouseUp(object sender, MouseEventArgs e)
-        {
-            _panning = false;
-        }
-
-        private void easternHyruleTabPage_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_panning)
-            {
-                Point newAutoScrollPosition = new Point();
-                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
-                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
-                easternHyruleTabPage.AutoScrollPosition = newAutoScrollPosition;
-
-                easternHyruleTabPage.Invalidate();
-                easternHyrulePictureBox.Invalidate();
-            }
-        }
-
-        private void mazeIslandTabPage_MouseDown(object sender, MouseEventArgs e)
-        {
-            _panning = true;
-            _autoScrollStartPosition = mazeIslandTabPage.AutoScrollPosition;
-            _autoScrollStartPosition.X = -_autoScrollStartPosition.X;
-            _autoScrollStartPosition.Y = -_autoScrollStartPosition.Y;
-            _mouseStartingLocation = e.Location;
-        }
-
-        private void mazeIslandTabPage_MouseUp(object sender, MouseEventArgs e)
-        {
-            _panning = false;
-        }
-
-        private void mazeIslandTabPage_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (_panning)
-            {
-                Point newAutoScrollPosition = new Point();
-                newAutoScrollPosition.X = _autoScrollStartPosition.X + (_mouseStartingLocation.X - e.Location.X);
-                newAutoScrollPosition.Y = _autoScrollStartPosition.Y + (_mouseStartingLocation.Y - e.Location.Y);
-                mazeIslandTabPage.AutoScrollPosition = newAutoScrollPosition;
-
-                mazeIslandTabPage.Invalidate();
-                mazeIslandPictureBox.Invalidate();
+                selectedPictureBox.Invalidate();
             }
         }
 
         private void mainTabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             TabControl tabControl = ((TabControl)sender);
+            TabPage selectedTabPage = tabControl.SelectedTab;
 
-            if(tabControl.SelectedTab == westernHyruleTabPage && _westernHyruleAutoScrollNeedsAdjustment)
+            if(selectedTabPage == westernHyruleTabPage && _westernHyruleAutoScrollNeedsAdjustment)
             {
                 westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
                 _westernHyruleAutoScrollNeedsAdjustment = false;
             }
 
-            if(tabControl.SelectedTab == easternHyruleTabPage && _easternHyruleAutoScrollNeedsAdjustment)
+            if(selectedTabPage == easternHyruleTabPage && _easternHyruleAutoScrollNeedsAdjustment)
             {
                 easternHyruleTabPage.AutoScrollPosition = _easternHyruleMapAutoScrollPosition;
                 _easternHyruleAutoScrollNeedsAdjustment = false;
+            }
+
+            if(selectedTabPage.Tag != null)
+            {
+                double zoomFactor = (double)selectedTabPage.Tag;
+                EnableZoomControlsAndShowZoomFactor(zoomFactor);
+            }else
+            {
+                DisableZoomControls();
             }
         }
 

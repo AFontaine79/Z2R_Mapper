@@ -254,19 +254,18 @@
             this.westernHyruleTabPage.TabIndex = 0;
             this.westernHyruleTabPage.Text = "Western Hyrule";
             this.westernHyruleTabPage.UseVisualStyleBackColor = true;
-            this.westernHyruleTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseDown);
-            this.westernHyruleTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseMove);
-            this.westernHyruleTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.westernHyruleTabPage_MouseUp);
             // 
             // westernHyrulePictureBox
             // 
-            this.westernHyrulePictureBox.Enabled = false;
             this.westernHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
             this.westernHyrulePictureBox.Name = "westernHyrulePictureBox";
             this.westernHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
             this.westernHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.westernHyrulePictureBox.TabIndex = 0;
             this.westernHyrulePictureBox.TabStop = false;
+            this.westernHyrulePictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseDown);
+            this.westernHyrulePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseMove);
+            this.westernHyrulePictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseUp);
             // 
             // deathMountainTabPage
             // 
@@ -279,19 +278,18 @@
             this.deathMountainTabPage.TabIndex = 2;
             this.deathMountainTabPage.Text = "Death Mountain";
             this.deathMountainTabPage.UseVisualStyleBackColor = true;
-            this.deathMountainTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseDown);
-            this.deathMountainTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseMove);
-            this.deathMountainTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.deathMountainTabPage_MouseUp);
             // 
             // deathMountainPictureBox
             // 
-            this.deathMountainPictureBox.Enabled = false;
             this.deathMountainPictureBox.Location = new System.Drawing.Point(6, 6);
             this.deathMountainPictureBox.Name = "deathMountainPictureBox";
             this.deathMountainPictureBox.Size = new System.Drawing.Size(300, 200);
             this.deathMountainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.deathMountainPictureBox.TabIndex = 0;
             this.deathMountainPictureBox.TabStop = false;
+            this.deathMountainPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseDown);
+            this.deathMountainPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseMove);
+            this.deathMountainPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseUp);
             // 
             // easternHyruleTabPage
             // 
@@ -304,19 +302,18 @@
             this.easternHyruleTabPage.TabIndex = 1;
             this.easternHyruleTabPage.Text = "Eastern Hyrule";
             this.easternHyruleTabPage.UseVisualStyleBackColor = true;
-            this.easternHyruleTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseDown);
-            this.easternHyruleTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseMove);
-            this.easternHyruleTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.easternHyruleTabPage_MouseUp);
             // 
             // easternHyrulePictureBox
             // 
-            this.easternHyrulePictureBox.Enabled = false;
             this.easternHyrulePictureBox.Location = new System.Drawing.Point(6, 6);
             this.easternHyrulePictureBox.Name = "easternHyrulePictureBox";
             this.easternHyrulePictureBox.Size = new System.Drawing.Size(300, 200);
             this.easternHyrulePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.easternHyrulePictureBox.TabIndex = 0;
             this.easternHyrulePictureBox.TabStop = false;
+            this.easternHyrulePictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseDown);
+            this.easternHyrulePictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseMove);
+            this.easternHyrulePictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseUp);
             // 
             // mazeIslandTabPage
             // 
@@ -329,19 +326,18 @@
             this.mazeIslandTabPage.TabIndex = 3;
             this.mazeIslandTabPage.Text = "Maze Island";
             this.mazeIslandTabPage.UseVisualStyleBackColor = true;
-            this.mazeIslandTabPage.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseDown);
-            this.mazeIslandTabPage.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseMove);
-            this.mazeIslandTabPage.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mazeIslandTabPage_MouseUp);
             // 
             // mazeIslandPictureBox
             // 
-            this.mazeIslandPictureBox.Enabled = false;
             this.mazeIslandPictureBox.Location = new System.Drawing.Point(6, 6);
             this.mazeIslandPictureBox.Name = "mazeIslandPictureBox";
             this.mazeIslandPictureBox.Size = new System.Drawing.Size(300, 200);
             this.mazeIslandPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.mazeIslandPictureBox.TabIndex = 0;
             this.mazeIslandPictureBox.TabStop = false;
+            this.mazeIslandPictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseDown);
+            this.mazeIslandPictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseMove);
+            this.mazeIslandPictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mapImagePictureBox_MouseUp);
             // 
             // itemSummaryTabPage
             // 
@@ -548,6 +544,7 @@
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.mainTabControl.ResumeLayout(false);
