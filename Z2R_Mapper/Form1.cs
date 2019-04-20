@@ -79,10 +79,10 @@ namespace Z2R_Mapper
             spellCostsTextBox.MouseWheel += SpellSummaryTextBox_MouseWheel;
             palaceRoutingTextBox.MouseWheel += PalaceRoutingTextBox_MouseWheel;
 
-            westernHyruleTabPage.MouseWheel += MapPage_MouseWheel;
-            deathMountainTabPage.MouseWheel += MapPage_MouseWheel;
-            easternHyruleTabPage.MouseWheel += MapPage_MouseWheel;
-            mazeIslandTabPage.MouseWheel += MapPage_MouseWheel;
+            westernHyrulePictureBox.MouseWheel += MapPage_MouseWheel;
+            deathMountainPictureBox.MouseWheel += MapPage_MouseWheel;
+            easternHyrulePictureBox.MouseWheel += MapPage_MouseWheel;
+            mazeIslandPictureBox.MouseWheel += MapPage_MouseWheel;
 
             // Allow opening of a ROM file by dragging the file on top of the executable or its shortcut.
             string[] args = Environment.GetCommandLineArgs();
@@ -153,10 +153,10 @@ namespace Z2R_Mapper
             _romLoaded = true;
 
             // This function creates the scaled bitmaps and attaches them to the PictureBoxes.
-            ResizeMap(westernHyruleTabPage, westernHyrulePictureBox);
-            ResizeMap(deathMountainTabPage, deathMountainPictureBox);
-            ResizeMap(easternHyruleTabPage, easternHyrulePictureBox);
-            ResizeMap(mazeIslandTabPage, mazeIslandPictureBox);
+            ResizeMap(westernHyruleTabPage, westernHyrulePictureBox, new Point(0,0), 1.0);
+            ResizeMap(deathMountainTabPage, deathMountainPictureBox, new Point(0, 0), 1.0);
+            ResizeMap(easternHyruleTabPage, easternHyrulePictureBox, new Point(0, 0), 1.0);
+            ResizeMap(mazeIslandTabPage, mazeIslandPictureBox, new Point(0, 0), 1.0);
 
             _westernHyruleMapAutoScrollPosition = CenterMapOnXY(westernHyruleTabPage, _z2rMapper.GetBitmapXYAtCenterOfNorthPalace());
             westernHyruleTabPage.AutoScrollPosition = _westernHyruleMapAutoScrollPosition;
@@ -190,12 +190,12 @@ namespace Z2R_Mapper
 
         private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZoomOutMap();
+            ZoomOutMap(GetBitmapXYAtCenterOfVisibleArea());
         }
 
         private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZoomInMap();
+            ZoomInMap(GetBitmapXYAtCenterOfVisibleArea());
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -204,13 +204,13 @@ namespace Z2R_Mapper
             {
                 case Keys.Add:
                 case Keys.Oemplus:
-                    ZoomInMap();
+                    ZoomInMap(GetBitmapXYAtCenterOfVisibleArea());
                     e.Handled = true;
                     break;
 
                 case Keys.Subtract:
                 case Keys.OemMinus:
-                    ZoomOutMap();
+                    ZoomOutMap(GetBitmapXYAtCenterOfVisibleArea());
                     e.Handled = true;
                     break;
 
@@ -270,13 +270,16 @@ namespace Z2R_Mapper
             {
                 if(e.Delta < 0)
                 {
-                    ZoomOutMap();
+                    ZoomOutMap(new Point(e.X, e.Y));
                 }
                 else
                 {
-                    ZoomInMap();
+                    ZoomInMap(new Point(e.X, e.Y));
                 }
                 ((HandledMouseEventArgs)e).Handled = true;
+            } else
+            {
+                ((HandledMouseEventArgs)e).Handled = false;
             }
         }
 
@@ -302,41 +305,76 @@ namespace Z2R_Mapper
             tabPage.AutoScrollPosition = scrollPosition;
         }
 
-        private void ZoomOutMap()
+        private Point GetBitmapXYAtCenterOfVisibleArea()
+        {
+            TabPage selectedMapTabPage = mainTabControl.SelectedTab;
+            Point centerOfPictureBox = new Point(selectedMapTabPage.Width / 2, selectedMapTabPage.Height / 2);
+            centerOfPictureBox.X += (-selectedMapTabPage.AutoScrollPosition.X);
+            centerOfPictureBox.Y += (-selectedMapTabPage.AutoScrollPosition.Y);
+            return centerOfPictureBox;
+        }
+
+        private void ZoomOutMap(Point pictureBoxXY)
         {
             TabPage selectedMapTabPage = mainTabControl.SelectedTab;
             PictureBox selectedMapPictureBox = (PictureBox)selectedMapTabPage.GetChildAtPoint(new Point(10, 10));
             double zoomFactor = (double)selectedMapTabPage.Tag;
             if (zoomFactor > 0.25)
             {
+                double oldZoomFactor = zoomFactor;
                 zoomFactor -= 0.25;
                 selectedMapTabPage.Tag = zoomFactor;
+                ResizeMap(selectedMapTabPage, selectedMapPictureBox, pictureBoxXY, oldZoomFactor);
             }
-            ResizeMap(selectedMapTabPage, selectedMapPictureBox);
         }
 
-        private void ZoomInMap()
+        private void ZoomInMap(Point pictureBoxXY)
         {
             TabPage selectedMapTabPage = mainTabControl.SelectedTab;
             PictureBox selectedMapPictureBox = (PictureBox)selectedMapTabPage.GetChildAtPoint(new Point(10, 10));
             double zoomFactor = (double)selectedMapTabPage.Tag;
             if (zoomFactor < 1.5)
             {
+                double oldZoomFactor = zoomFactor;
                 zoomFactor += 0.25;
                 selectedMapTabPage.Tag = zoomFactor;
+                ResizeMap(selectedMapTabPage, selectedMapPictureBox, pictureBoxXY, oldZoomFactor);
             }
-            ResizeMap(selectedMapTabPage, selectedMapPictureBox);
         }
 
-        private void ResizeMap(TabPage selectedMapTabPage, PictureBox selectedMapPictureBox)
+        private void ResizeMap(TabPage selectedMapTabPage, PictureBox selectedMapPictureBox, Point pictureBoxXY, double oldZoomFactor)
         {
             Bitmap unscaledImage = (Bitmap)selectedMapPictureBox.Tag;
             double zoomFactor = (double)selectedMapTabPage.Tag;
-            if(unscaledImage != null)
+            if (unscaledImage != null)
             {
+                // This math can probably be reduced, but I like having it clearly laid out
+                // and understandable.
+                Point oldScrollPosition = selectedMapTabPage.AutoScrollPosition;
+
+                // If MouseWheel event is coming from TabPage.
+                //Point oldBitmapFocalPoint = new Point(pictureBoxXY.X + (-oldScrollPosition.X),
+                //    pictureBoxXY.Y + (-oldScrollPosition.Y));
+
+                // If MouseWheel event is coming from PictureBox.
+                Point oldBitmapFocalPoint = new Point(pictureBoxXY.X, pictureBoxXY.Y);
+
+                double focalPointRescalingFactor = (zoomFactor / oldZoomFactor);
+                Point newBitmapFocalPoint = new Point((int)(oldBitmapFocalPoint.X * focalPointRescalingFactor),
+                    (int)(oldBitmapFocalPoint.Y * focalPointRescalingFactor));
+
+                // If MouseWheel event is coming from TabPage.
+                //Point newAutoScrollPosition = new Point(newBitmapFocalPoint.X - pictureBoxXY.X,
+                //    newBitmapFocalPoint.Y - pictureBoxXY.Y);
+
+                // If MouseWheel event is coming from PictureBox.
+                Point newAutoScrollPosition = new Point(newBitmapFocalPoint.X - pictureBoxXY.X + (-oldScrollPosition.X),
+                    newBitmapFocalPoint.Y - pictureBoxXY.Y + (-oldScrollPosition.Y));
+
                 Size newSize = new Size((int)(unscaledImage.Width * zoomFactor), (int)(unscaledImage.Height * zoomFactor));
                 Bitmap bmp = new Bitmap(unscaledImage, newSize);
                 selectedMapPictureBox.Image = bmp;
+                selectedMapTabPage.AutoScrollPosition = newAutoScrollPosition;
             }
             EnableZoomControlsAndShowZoomFactor(zoomFactor);
         }
