@@ -951,7 +951,7 @@ namespace Z2R_Mapper
             return retVal;
         }
 
-        public string GetPalaceRoutingSummary(bool showDirections, bool showRequirements, bool showItemToBossRoutes)
+        public string GetPalaceRoutingSummary(bool showDirections, bool showRequirements, bool showItemToBossRoutes, bool showPalaceLocations)
         {
             StringBuilder routingSummary = new StringBuilder(1024);
             RoutingSolution[] routingSolutionSet;
@@ -964,7 +964,7 @@ namespace Z2R_Mapper
                 ItemLocationInfo locationInfo;
                 if ((locationInfo = _itemLocationTable[5, palaceIndex]) != null)
                 {
-                    AddItemToItemSummary(ref routingSummary, locationInfo, false, false, 0);
+                    AddItemToItemSummary(ref routingSummary, locationInfo, showPalaceLocations, showPalaceLocations, 0);
                 }
                 foreach (PalaceRouteType routeType in (PalaceRouteType[])Enum.GetValues(typeof(PalaceRouteType)))
                 {

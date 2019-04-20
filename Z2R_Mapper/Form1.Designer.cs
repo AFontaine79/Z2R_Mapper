@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZeldaIIROMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomInToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,10 +64,10 @@
             this.palaceRoutingPanel = new System.Windows.Forms.Panel();
             this.palaceRoutingTextBox = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.showPalaceLocationsCheckBox = new System.Windows.Forms.CheckBox();
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
             this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
             this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
-            this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
@@ -121,6 +122,14 @@
             this.openZeldaIIROMFileToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.openZeldaIIROMFileToolStripMenuItem.Text = "Open Z2R ROM File";
             this.openZeldaIIROMFileToolStripMenuItem.Click += new System.EventHandler(this.OpenZeldaIIROMFileToolStripMenuItem_Click);
+            // 
+            // quitToolStripMenuItem
+            // 
+            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
+            this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.quitToolStripMenuItem.Text = "Quit";
+            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -231,7 +240,7 @@
             this.showCombinedSpellCheckBox.TabIndex = 1;
             this.showCombinedSpellCheckBox.Text = "Show Spell Combined with Fire";
             this.showCombinedSpellCheckBox.UseVisualStyleBackColor = true;
-            this.showCombinedSpellCheckBox.CheckedChanged += new System.EventHandler(this.showCombinedSpellCheckBox_CheckedChanged);
+            this.showCombinedSpellCheckBox.CheckedChanged += new System.EventHandler(this.StatsSummary_Redraw);
             // 
             // showMaxHeartContainersCheckBox
             // 
@@ -243,7 +252,7 @@
             this.showMaxHeartContainersCheckBox.TabIndex = 0;
             this.showMaxHeartContainersCheckBox.Text = "Show Max Heart Containers";
             this.showMaxHeartContainersCheckBox.UseVisualStyleBackColor = true;
-            this.showMaxHeartContainersCheckBox.CheckedChanged += new System.EventHandler(this.showMaxHeartContainersCheckBox_CheckedChanged);
+            this.showMaxHeartContainersCheckBox.CheckedChanged += new System.EventHandler(this.StatsSummary_Redraw);
             // 
             // westernHyruleTabPage
             // 
@@ -482,6 +491,7 @@
             // 
             this.panel5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel5.Controls.Add(this.showPalaceLocationsCheckBox);
             this.panel5.Controls.Add(this.showRequirementsCheckBox);
             this.panel5.Controls.Add(this.showItemToBossCheckBox);
             this.panel5.Controls.Add(this.showDirectionsCheckBox);
@@ -489,6 +499,17 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(854, 26);
             this.panel5.TabIndex = 1;
+            // 
+            // showPalaceLocationsCheckBox
+            // 
+            this.showPalaceLocationsCheckBox.AutoSize = true;
+            this.showPalaceLocationsCheckBox.Location = new System.Drawing.Point(506, 2);
+            this.showPalaceLocationsCheckBox.Name = "showPalaceLocationsCheckBox";
+            this.showPalaceLocationsCheckBox.Size = new System.Drawing.Size(176, 21);
+            this.showPalaceLocationsCheckBox.TabIndex = 3;
+            this.showPalaceLocationsCheckBox.Text = "Show Palace Locations";
+            this.showPalaceLocationsCheckBox.UseVisualStyleBackColor = true;
+            this.showPalaceLocationsCheckBox.CheckedChanged += new System.EventHandler(this.PalaceRoutingSummary_Redraw);
             // 
             // showRequirementsCheckBox
             // 
@@ -502,7 +523,7 @@
             this.showRequirementsCheckBox.TabIndex = 1;
             this.showRequirementsCheckBox.Text = "Show Requirements";
             this.showRequirementsCheckBox.UseVisualStyleBackColor = true;
-            this.showRequirementsCheckBox.CheckedChanged += new System.EventHandler(this.showRequirementsCheckBox_CheckedChanged);
+            this.showRequirementsCheckBox.CheckedChanged += new System.EventHandler(this.PalaceRoutingSummary_Redraw);
             // 
             // showItemToBossCheckBox
             // 
@@ -514,7 +535,7 @@
             this.showItemToBossCheckBox.TabIndex = 2;
             this.showItemToBossCheckBox.Text = "Show Item to Boss Routing";
             this.showItemToBossCheckBox.UseVisualStyleBackColor = true;
-            this.showItemToBossCheckBox.CheckedChanged += new System.EventHandler(this.showItemToBossCheckBox_CheckedChanged);
+            this.showItemToBossCheckBox.CheckedChanged += new System.EventHandler(this.PalaceRoutingSummary_Redraw);
             // 
             // showDirectionsCheckBox
             // 
@@ -526,15 +547,7 @@
             this.showDirectionsCheckBox.TabIndex = 0;
             this.showDirectionsCheckBox.Text = "Show Directions";
             this.showDirectionsCheckBox.UseVisualStyleBackColor = true;
-            this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.showDirectionsCheckBox_CheckedChanged);
-            // 
-            // quitToolStripMenuItem
-            // 
-            this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
-            this.quitToolStripMenuItem.Text = "Quit";
-            this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
+            this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.PalaceRoutingSummary_Redraw);
             // 
             // Form1
             // 
@@ -632,6 +645,7 @@
         private System.Windows.Forms.ToolStripMenuItem zoomOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox zoomFactorTextBox;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
+        private System.Windows.Forms.CheckBox showPalaceLocationsCheckBox;
     }
 }
 

@@ -440,16 +440,12 @@ namespace Z2R_Mapper
                 palaceRoutingTextBox.Text = _z2rMapper.GetPalaceRoutingSummary(
                     showDirectionsCheckBox.Checked,
                     showRequirementsCheckBox.Checked,
-                    showItemToBossCheckBox.Checked);
+                    showItemToBossCheckBox.Checked,
+                    showPalaceLocationsCheckBox.Checked);
             }
         }
 
-        private void showMaxHeartContainersCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            RedrawStatsSummary();
-        }
-
-        private void showCombinedSpellCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void StatsSummary_Redraw(object sender, EventArgs e)
         {
             RedrawStatsSummary();
         }
@@ -465,17 +461,7 @@ namespace Z2R_Mapper
             }
         }
 
-        private void showDirectionsCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            RedrawPalaceRoutingSummary();
-        }
-
-        private void showRequirementsCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            RedrawPalaceRoutingSummary();
-        }
-
-        private void showItemToBossCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void PalaceRoutingSummary_Redraw(object sender, EventArgs e)
         {
             RedrawPalaceRoutingSummary();
         }
