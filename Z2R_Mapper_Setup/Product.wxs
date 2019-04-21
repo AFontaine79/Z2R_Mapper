@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="Z2R_Mapper" Language="1033" Version="1.1.0.0" Manufacturer="fon2d2" UpgradeCode="b8ce06b7-c8af-4d43-861d-561bc7c9daaa">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+    <Icon Id="icon.ico" SourceFile="$(var.Z2R_Mapper.TargetDir)\..\..\Z2R_Mapper_Icon.ico"/>
+    <Property Id="ARPPRODUCTICON" Value="icon.ico" />
+
+		<Feature Id="ProductFeature" Title="Z2R Mapper" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+      <ComponentRef Id="ApplicationShortcut" />
+      <ComponentRef Id="ApplicationShortcutDesktop" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="INSTALLFOLDER" Name="Z2R_Mapper" />
+			</Directory>
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="ApplicationProgramsFolder" Name="Z2R_Mapper"/>
+      </Directory>
+      <Directory Id="DesktopFolder" Name="Desktop">
+        <Component Id="ApplicationShortcutDesktop" Guid="*">
+          <Shortcut Id="ApplicationDesktopShortcut"
+              Name="Z2R Mapper"
+              Description="Mapper for Zelda II Randomizer"
+              Target="[#Z2R_Mapper.exe]"
+              WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+          <RemoveFolder Id="DesktopFolder" On="uninstall"/>
+          <RegistryValue
+              Root="HKCU"
+              Key="Software\fon2d2\Z2R_Mapper"
+              Name="desktop_installed"
+              Type="integer"
+              Value="1"
+              KeyPath="yes"/>
+        </Component>
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <DirectoryRef Id="ApplicationProgramsFolder">
+      <Component Id="ApplicationShortcut" Guid="DD52B337-2395-4B3F-BDAE-5F3651602E12">
+        <Shortcut Id="ApplicationStartMenuShortcut"
+           Name="Z2R Mapper"
+           Description="Mapper for Zelda II Randomizer"
+           Target="[#Z2R_Mapper.exe]"
+           WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+        <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+        <RegistryValue
+          Root="HKCU"
+          Key="Software\fon2d2\Z2R_Mapper"
+          Name="start_menu_installed"
+          Type="integer"
+          Value="1"
+          KeyPath="yes"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+
+  <Fragment>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<Component Id="ProductComponent">
+        <File Id="Z2R_Mapper.exe" Name="$(var.Z2R_Mapper.TargetFileName)" Source="$(var.Z2R_Mapper.TargetPath)" />
+			</Component>
+		</ComponentGroup>
+	</Fragment>
+</Wix>
