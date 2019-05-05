@@ -68,6 +68,7 @@
             this.showRequirementsCheckBox = new System.Windows.Forms.CheckBox();
             this.showItemToBossCheckBox = new System.Windows.Forms.CheckBox();
             this.showDirectionsCheckBox = new System.Windows.Forms.CheckBox();
+            this.caveReferenceLinkLabel = new System.Windows.Forms.LinkLabel();
             this.menuStrip1.SuspendLayout();
             this.mainTabControl.SuspendLayout();
             this.startingStatsTabPage.SuspendLayout();
@@ -549,12 +550,26 @@
             this.showDirectionsCheckBox.UseVisualStyleBackColor = true;
             this.showDirectionsCheckBox.CheckedChanged += new System.EventHandler(this.PalaceRoutingSummary_Redraw);
             // 
+            // caveReferenceLinkLabel
+            // 
+            this.caveReferenceLinkLabel.AutoSize = true;
+            this.caveReferenceLinkLabel.Enabled = false;
+            this.caveReferenceLinkLabel.Location = new System.Drawing.Point(519, 9);
+            this.caveReferenceLinkLabel.Name = "caveReferenceLinkLabel";
+            this.caveReferenceLinkLabel.Size = new System.Drawing.Size(165, 17);
+            this.caveReferenceLinkLabel.TabIndex = 2;
+            this.caveReferenceLinkLabel.TabStop = true;
+            this.caveReferenceLinkLabel.Text = "Cave Letter Assignments";
+            this.caveReferenceLinkLabel.Visible = false;
+            this.caveReferenceLinkLabel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.caveReferenceLinkLabel_LinkClicked);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 608);
+            this.Controls.Add(this.caveReferenceLinkLabel);
             this.Controls.Add(this.mainTabControl);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -646,6 +661,7 @@
         private System.Windows.Forms.ToolStripTextBox zoomFactorTextBox;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.CheckBox showPalaceLocationsCheckBox;
+        private System.Windows.Forms.LinkLabel caveReferenceLinkLabel;
     }
 }
 

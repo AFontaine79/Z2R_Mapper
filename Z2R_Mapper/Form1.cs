@@ -521,7 +521,18 @@ namespace Z2R_Mapper
                 _easternHyruleAutoScrollNeedsAdjustment = false;
             }
 
-            if(selectedTabPage.Tag != null)
+            if(selectedTabPage == deathMountainTabPage)
+            {
+                caveReferenceLinkLabel.Enabled = true;
+                caveReferenceLinkLabel.Visible = true;
+            }
+            else
+            {
+                caveReferenceLinkLabel.Enabled = false;
+                caveReferenceLinkLabel.Visible = false;
+            }
+
+            if (selectedTabPage.Tag != null)
             {
                 double zoomFactor = (double)selectedTabPage.Tag;
                 EnableZoomControlsAndShowZoomFactor(zoomFactor);
@@ -540,6 +551,11 @@ namespace Z2R_Mapper
         private void quitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void caveReferenceLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("http://www.videogamemaps.net/maps/nes/zelda2/Death%20Mountain%20Caves%20-%20Mephea.png");
         }
     }
 }
