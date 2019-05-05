@@ -428,8 +428,8 @@ namespace Z2R_Mapper
             new ItemLookupHelper { LookupRequired = true, RomBankNumber = 2, RomBankAddress = 0x8F9A },     // 10 Heart Container Water Tile
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0 },         // 11 Nabooru Cave
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0 },
-            new ItemLookupHelper { LookupRequired = true, RomBankNumber = 2, RomBankAddress = 0x8FA3 },     // 13 PBag Cave 1
-            new ItemLookupHelper { LookupRequired = true, RomBankNumber = 2, RomBankAddress = 0x8EBC },     // 14 PBag Cave 2
+            new ItemLookupHelper { LookupRequired = true, RomBankNumber = 2, RomBankAddress = 0x8EBC },     // 13 PBag Cave 1
+            new ItemLookupHelper { LookupRequired = true, RomBankNumber = 2, RomBankAddress = 0x8FA3 },     // 14 PBag Cave 2
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0 },         // 15 Tektite Cave
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0 },
             new ItemLookupHelper { LookupRequired = false, RomBankNumber = 0, RomBankAddress = 0 },         // 17 2nd VoD Cave
