@@ -9,6 +9,8 @@
     <Icon Id="icon.ico" SourceFile="$(var.Z2R_Mapper.TargetDir)\..\..\Z2R_Mapper_Icon.ico"/>
     <Property Id="ARPPRODUCTICON" Value="icon.ico" />
 
+    <UIRef Id="WixUI_Minimal_NoEULA" />
+    
 		<Feature Id="ProductFeature" Title="Z2R Mapper" Level="1">
 			<ComponentGroupRef Id="ProductComponents" />
       <ComponentRef Id="ApplicationShortcut" />
