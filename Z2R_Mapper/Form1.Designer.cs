@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openZeldaIIROMFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.palaceRoutingAnalysisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.zoomOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,6 +112,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openZeldaIIROMFileToolStripMenuItem,
+            this.palaceRoutingAnalysisToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 27);
@@ -123,6 +125,14 @@
             this.openZeldaIIROMFileToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
             this.openZeldaIIROMFileToolStripMenuItem.Text = "Open Z2R ROM File";
             this.openZeldaIIROMFileToolStripMenuItem.Click += new System.EventHandler(this.OpenZeldaIIROMFileToolStripMenuItem_Click);
+            // 
+            // palaceRoutingAnalysisToolStripMenuItem
+            // 
+            this.palaceRoutingAnalysisToolStripMenuItem.Name = "palaceRoutingAnalysisToolStripMenuItem";
+            this.palaceRoutingAnalysisToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+            this.palaceRoutingAnalysisToolStripMenuItem.Size = new System.Drawing.Size(267, 26);
+            this.palaceRoutingAnalysisToolStripMenuItem.Text = "Palace Analytics";
+            this.palaceRoutingAnalysisToolStripMenuItem.Click += new System.EventHandler(this.palaceRoutingAnalysisToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
@@ -662,6 +672,7 @@
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.CheckBox showPalaceLocationsCheckBox;
         private System.Windows.Forms.LinkLabel caveReferenceLinkLabel;
+        private System.Windows.Forms.ToolStripMenuItem palaceRoutingAnalysisToolStripMenuItem;
     }
 }
 

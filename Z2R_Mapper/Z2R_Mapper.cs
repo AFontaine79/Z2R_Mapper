@@ -389,7 +389,7 @@ namespace Z2R_Mapper
 
         public Z2R_Mapper(String romFileName)
         {
-            _z2rReader = new Z2R_Reader(romFileName);
+            _z2rReader = new Z2R_Reader(romFileName, true);
             GeneratePalaceRoutingSolutionsTable();
         }
 

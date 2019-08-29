@@ -557,5 +557,14 @@ namespace Z2R_Mapper
         {
             System.Diagnostics.Process.Start("http://www.videogamemaps.net/maps/nes/zelda2/Death%20Mountain%20Caves%20-%20Mephea.png");
         }
+
+        private void palaceRoutingAnalysisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            using (PalaceRoutingAnalysis pra = new PalaceRoutingAnalysis())
+            {
+                pra.ShowDialog();
+            }
+            
+        }
     }
 }
