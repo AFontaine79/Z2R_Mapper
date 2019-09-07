@@ -350,7 +350,14 @@ namespace Z2R_Mapper.Palace_Routing
         private int[,,,] _routingStatistics;
         // Indexed = palace number
         // Value = the total number of solutions counted for that palace across all ROM files analyzed.
-        private int[] _totalSolutionCount;
+        private int[] _totalSolutionsCount;
+        // Counts for routing requirements report.
+        private int[] _totalLockedDoorsCount;
+        private int[] _gloveBlockedCount;
+        private int[] _fairyBlockedCount;
+        private int[] _downstabRequiredCount;
+        private int[] _upstabRequiredCount;
+        private int[] _thunderbirdRequiredCount;
         // Lock object to allow updating of these fields from multiple threads.
         private readonly object _statFieldsLock = new object();
 
@@ -385,7 +392,13 @@ namespace Z2R_Mapper.Palace_Routing
             lock(_statFieldsLock)
             {
                 _routingStatistics = new int[3, 63, 5, 5];
-                _totalSolutionCount = new int[8];
+                _totalSolutionsCount = new int[8];
+                _totalLockedDoorsCount = new int[8];
+                _gloveBlockedCount = new int[8];
+                _fairyBlockedCount = new int[8];
+                _downstabRequiredCount = new int[8];
+                _upstabRequiredCount = new int[8];
+                _thunderbirdRequiredCount = new int[8];
             }
         }
 
@@ -399,6 +412,9 @@ namespace Z2R_Mapper.Palace_Routing
                     int connectionMapIndex = PalaceNumberToConnectionMapIndex[palaceNumber];
 
                     RoutingSolution[] solutionSet = _z2rReader.DoPalacePathFindOperation(palaceNumber, _routeType);
+
+                    if (solutionSet == null)
+                        continue;
 
                     foreach (RoutingSolution solution in solutionSet)
                     {
@@ -415,7 +431,31 @@ namespace Z2R_Mapper.Palace_Routing
                         }
                         lock(_statFieldsLock)
                         {
-                            _totalSolutionCount[palaceNumber] += 1;
+                            _totalSolutionsCount[palaceNumber] += 1;
+
+                            _totalLockedDoorsCount[palaceNumber] += solution.numLockedDoors;
+                            if (_routeType == PalaceRouteType.EntranceToItem)
+                                _totalLockedDoorsCount[palaceNumber] += 1;
+
+                            // GloveOrFairyRequired is not applied to either glove or fairy count.
+                            // It only applies to one room in GP, for which Jump also works.
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.GloveRequired) != 0)
+                                _gloveBlockedCount[palaceNumber] += 1;
+
+                            // Apply JumpOrFairyRequired to fairy count.  This allows us to get
+                            // odds you have to go left through Jump or Fairy room in P2.
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.FairyRequired) != 0)
+                                _fairyBlockedCount[palaceNumber] += 1;
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.JumpOrFairyRequired) != 0)
+                                _fairyBlockedCount[palaceNumber] += 1;
+
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.DownstabRequired) != 0)
+                                _downstabRequiredCount[palaceNumber] += 1;
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.UpstabRequired) != 0)
+                                _upstabRequiredCount[palaceNumber] += 1;
+
+                            if ((solution.requirementFlags & (ushort)PassthroughFlag.FightThunderbird) != 0)
+                                _thunderbirdRequiredCount[palaceNumber] += 1;
                         }
                     }
                 }
@@ -490,7 +530,7 @@ namespace Z2R_Mapper.Palace_Routing
                 }
                 else
                 {
-                    csvOutput.AppendLine(GenerateLineForRequirementsReport());
+                    csvOutput.AppendLine(GenerateLineForRequirementsReport(palaceNumber));
                 }
             }
 
@@ -567,6 +607,8 @@ namespace Z2R_Mapper.Palace_Routing
             outputLine.Append(",Avg Locked Doors");
             outputLine.Append(",Glove Required");
             outputLine.Append(",Fairy Required");
+            outputLine.Append(",Downstab Required");
+            outputLine.Append(",Upstab Required");
             outputLine.Append(",Thunderbird Required");
             return outputLine.ToString();
         }
@@ -626,7 +668,7 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     outputLine.Append(",");
                     float percentOddsForThisPath = (float)routesThatWentThisWay /
-                        (float)_totalSolutionCount[palaceNumber];
+                        (float)_totalSolutionsCount[palaceNumber];
                     outputLine.Append(percentOddsForThisPath.ToString());
                 }
             }
@@ -653,16 +695,30 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     outputLine.Append(",");
                     float percentOddsForThisPath = (float)routesThatWentThisWay /
-                        (float)_totalSolutionCount[palaceNumber];
+                        (float)_totalSolutionsCount[palaceNumber];
                     outputLine.Append(percentOddsForThisPath.ToString());
                 }
             }
             return outputLine.ToString();
         }
 
-        private string GenerateLineForRequirementsReport()
+        private string GenerateLineForRequirementsReport(int palaceNumber)
         {
-            return "";
+            StringBuilder outputLine = new StringBuilder();
+            outputLine.Append(GetPalaceName(palaceNumber));
+            outputLine.Append(",");
+            outputLine.Append((float)_totalLockedDoorsCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            outputLine.Append(",");
+            outputLine.Append((float)_gloveBlockedCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            outputLine.Append(",");
+            outputLine.Append((float)_fairyBlockedCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            outputLine.Append(",");
+            outputLine.Append((float)_downstabRequiredCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            outputLine.Append(",");
+            outputLine.Append((float)_upstabRequiredCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            outputLine.Append(",");
+            outputLine.Append((float)_thunderbirdRequiredCount[palaceNumber] / (float)_totalSolutionsCount[palaceNumber]);
+            return outputLine.ToString();
         }
 
         private string GetRoomDescription(int connectionMapIndex, int roomIndex)
