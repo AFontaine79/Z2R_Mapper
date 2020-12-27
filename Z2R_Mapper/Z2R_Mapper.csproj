@@ -55,10 +55,10 @@
     <ApplicationIcon>Z2R_Mapper_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>156F605A88C4357DADD98242E087C85419D61F5A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A43A3E311C6887DA0A435E77F1465EAC416EB264</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Z2R_Mapper_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Z2R_Mapper_8_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -99,6 +99,14 @@
     <Compile Include="Palace Routing\ConnectionMap_Palaces_1_2_and_5.cs" />
     <Compile Include="Palace Routing\ConnectionMap_Palaces_3_4_and_6.cs" />
     <Compile Include="Palace Routing\RoomConnectionMap.cs" />
+    <Compile Include="Palace Routing\RoutingAnalytics.cs" />
+    <Compile Include="PalaceAnalyticsController.cs" />
+    <Compile Include="PalaceRoutingAnalysis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PalaceRoutingAnalysis.Designer.cs">
+      <DependentUpon>PalaceRoutingAnalysis.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ROM Utils\PPU_Bitmap_Generator.cs" />
@@ -110,6 +118,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PalaceRoutingAnalysis.resx">
+      <DependentUpon>PalaceRoutingAnalysis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +141,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Z2R_Mapper_8_TemporaryKey.pfx" />
     <None Include="Z2R_Mapper_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>

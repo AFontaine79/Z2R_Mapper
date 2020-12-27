@@ -51,12 +51,14 @@ namespace Z2R_Mapper.Palace_Routing
     {
         public int numLockedDoors;
         public UInt16 requirementFlags;
+        public int[] roomIndices;
         public Direction[] directions;
 
         public RoutingSolution(int numConnections)
         {
             numLockedDoors = 0;
             requirementFlags = 0;
+            roomIndices = new int[numConnections];
             directions = new Direction[numConnections];
         }
     }
@@ -219,6 +221,7 @@ namespace Z2R_Mapper.Palace_Routing
                 {
                     thisSolution.directions[i] = currentDirection;
                 }
+                thisSolution.roomIndices[i] = roomIndices[i];
 
                 // If passing through room in this direction passes through a locked door,
                 // then we increment the locked door count.

@@ -629,14 +629,13 @@ namespace Z2R_Mapper
 
         private readonly Bitmap[] CollectibleItemBitmaps;
 
-        public Z2R_Reader(String romFileName)
+        public Z2R_Reader(String romFileName, bool generateBitmaps)
         {
-            // Set up helper classes
+            // Set up helper class
             _romInfo = new ROM_Info(romFileName);
 
             try
             {
-                _ppuBitmapGenerator = new PPU_Bitmap_Generator(_romInfo);
                 _newKasutoIsHidden = false;
                 _threeEyeRockPalaceIsHidden = false;
                 _extraHeartContainers = 0;
@@ -644,18 +643,24 @@ namespace Z2R_Mapper
                 // Pre-load the room connection tables before Z2R_Mapper asks for palace routing solutions
                 LoadPalaceRoomConnectionTables();
 
-                // Pre-generate images for overworld terrain tiles and collectible item sprites
-                OverworldBackgroundTileBitmaps = new Bitmap[Enum.GetValues(typeof(TerrainType)).Length];  // Better way to do this?
-                foreach (TerrainType terrainType in (TerrainType[])Enum.GetValues(typeof(TerrainType)))
+                if (generateBitmaps)
                 {
-                    OverworldBackgroundTileBitmaps[(int)terrainType] = GenerateOverworldTerrainTileBitmap(terrainType);
-                }
-                CollectibleItemBitmaps = new Bitmap[(int)CollectibleItem.Fairy + 1];
-                foreach (CollectibleItem item in (CollectibleItem[])Enum.GetValues(typeof(CollectibleItem)))
-                {
-                    if ((int)item <= (int)CollectibleItem.Fairy)
+                    // Set up helper class
+                    _ppuBitmapGenerator = new PPU_Bitmap_Generator(_romInfo);
+
+                    // Pre-generate images for overworld terrain tiles and collectible item sprites
+                    OverworldBackgroundTileBitmaps = new Bitmap[Enum.GetValues(typeof(TerrainType)).Length];  // Better way to do this?
+                    foreach (TerrainType terrainType in (TerrainType[])Enum.GetValues(typeof(TerrainType)))
                     {
-                        CollectibleItemBitmaps[(int)item] = GenerateCollectibleItemBitmap(item);
+                        OverworldBackgroundTileBitmaps[(int)terrainType] = GenerateOverworldTerrainTileBitmap(terrainType);
+                    }
+                    CollectibleItemBitmaps = new Bitmap[(int)CollectibleItem.Fairy + 1];
+                    foreach (CollectibleItem item in (CollectibleItem[])Enum.GetValues(typeof(CollectibleItem)))
+                    {
+                        if ((int)item <= (int)CollectibleItem.Fairy)
+                        {
+                            CollectibleItemBitmaps[(int)item] = GenerateCollectibleItemBitmap(item);
+                        }
                     }
                 }
             } catch
