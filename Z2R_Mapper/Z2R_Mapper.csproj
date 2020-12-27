@@ -55,10 +55,10 @@
     <ApplicationIcon>Z2R_Mapper_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>156F605A88C4357DADD98242E087C85419D61F5A</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>A43A3E311C6887DA0A435E77F1465EAC416EB264</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Z2R_Mapper_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Z2R_Mapper_8_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -141,6 +141,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Z2R_Mapper_8_TemporaryKey.pfx" />
     <None Include="Z2R_Mapper_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
